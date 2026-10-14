@@ -71,4 +71,4 @@ Multi-AI Chat Desktop `v1.6.3` 是針對非同步 UI、provider WebView 與 sess
 - Provider websites can change independently. Attach a sanitized exported debug log when reporting automation failures.
 - Provider 網頁可能獨立改版；回報自動化失敗時，請附上已去識別化的匯出 debug log。
 
-**Full changelog:** https://github.com/teddashh/multi-ai-chat-desktop/compare/v1.6.2...v1.6.3
+**Full changelog:** https://github.com/TED-H-com/multi-ai-chat-desktop/compare/v1.6.2...v1.6.3

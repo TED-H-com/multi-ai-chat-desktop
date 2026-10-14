@@ -4,7 +4,7 @@
 
 只問一次，讓四個已登入的 AI 網頁 session 互相回答、審查、質疑，再一起收斂結果。**ChatGPT、Claude、Gemini、Grok 仍是預設陣容；Meta AI 是 Settings 裡實驗性的第五家備用選項。** Multi-AI Chat Desktop 是以 Tauri 2 打造的多 AI workflow 中樞，不只是把四個聊天視窗並排。
 
-[**前往官方網站 →**](https://teddashh.github.io/multi-ai-chat-desktop/?lang=zh-TW) · [下載 v1.9.6](https://github.com/teddashh/multi-ai-chat-desktop/releases/tag/v1.9.6) · [所有版本](https://github.com/teddashh/multi-ai-chat-desktop/releases) · MIT · 不需 API Key · 無分析追蹤
+[**前往官方網站 →**](https://ted-h-com.github.io/multi-ai-chat-desktop/?lang=zh-TW) · [下載 v1.9.6](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.6) · [所有版本](https://github.com/TED-H-com/multi-ai-chat-desktop/releases) · MIT · 不需 API Key · 無分析追蹤
 
 > 本 app 會自動操作你原本就在使用的 provider 網頁。第三方介面改版可能暫時使 adapter 失效，自動化使用也可能受各服務條款約束。請只使用你有權使用的帳號與內容；本 app 不會繞過登入、訂閱、年齡、用量或安全驗證。
 
@@ -12,7 +12,7 @@
 
 ## 先安裝
 
-請從 [**v1.9.6 下載頁**](https://github.com/teddashh/multi-ai-chat-desktop/releases/tag/v1.9.6) 取得目前的穩定版。
+請從 [**v1.9.6 下載頁**](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.6) 取得目前的穩定版。
 
 | 平台 | 下載檔 | 第一次啟動須知 |
 |---|---|---|
@@ -32,7 +32,7 @@
 
 Ad-hoc 簽章可保護 bundle 完整性，也避免 `v1.0.0` 曾出現的錯誤「app 已損毀」訊息；只有 Apple Developer ID 簽章加 notarization 才能完全移除這個例外。受管理的 Mac 可能不允許使用者放行。
 
-Windows portable 版不顯示 app 內更新控制，請自行到 [GitHub Releases](https://github.com/teddashh/multi-ai-chat-desktop/releases/latest) 更新。安裝版可以檢查新版本並打開下載頁，但 app 不會自行下載或安裝更新。
+Windows portable 版不顯示 app 內更新控制，請自行到 [GitHub Releases](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/latest) 更新。安裝版可以檢查新版本並打開下載頁，但 app 不會自行下載或安裝更新。
 
 ## v1.9.6 更新重點
 
@@ -49,11 +49,11 @@ Windows portable 版不顯示 app 內更新控制，請自行到 [GitHub Release
 - **可選的 Meta AI 備用。** 五家可選、同時只啟用四家。原本四家仍是預設；Settings 可替換其中一家。Profile 會保留，角色與 targets 會修到目前陣容。
 - **Portrait 與診斷。** Meta AI 有獨立 portrait。Event log 與 debug bundle 會標成 Meta AI，不儲存 prompt 或回覆。
 
-完整內容請見[發布說明](https://github.com/teddashh/multi-ai-chat-desktop/releases/tag/v1.9.6)。
+完整內容請見[發布說明](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.6)。
 
 ## 桌面版還是瀏覽器外掛？
 
-| | **Desktop（本 repo）** | [**瀏覽器外掛**](https://teddashh.github.io/multi-ai-chat/?lang=zh-TW) |
+| | **Desktop（本 repo）** | [**瀏覽器外掛**](https://ted-h-com.github.io/multi-ai-chat/?lang=zh-TW) |
 |---|---|---|
 | 最適合 | 完整引導 workflow、聚焦真實 provider、local session、snapshot／replay 與本機文字檔 | 在 Chrome 與既有 provider 分頁中輕量使用 |
 | 執行方式 | Tauri app，每家 provider 各有一份獨立本機 profile | Chrome Side Panel 加一般瀏覽器分頁 |
@@ -161,10 +161,10 @@ Multi-AI Chat Desktop 是由 **Ted Huang／TED-H**（[TED@TED-H.com](mailto:TED@
 
 貢獻者致謝：
 
-- [Rumi-3653](https://github.com/Rumi-3653) 在 [#78](https://github.com/teddashh/multi-ai-chat-desktop/pull/78) 貢獻 ChatGPT v7 logged-out detector 修正。
-- [George Ku（`@ufgeorge`）](https://github.com/ufgeorge) 在 [#80](https://github.com/teddashh/multi-ai-chat-desktop/issues/80) 回報 provider 用量造成腦力激盪中斷，促成 v1.8.6 恢復流程。
-- [Dave Tseng（`@DaveTseng2019`）](https://github.com/DaveTseng2019) 貢獻 `v1.3.1` overlay 可靠性修正；在 [#10](https://github.com/teddashh/multi-ai-chat-desktop/pull/10)、[#11](https://github.com/teddashh/multi-ai-chat-desktop/pull/11)、[#12](https://github.com/teddashh/multi-ai-chat-desktop/pull/12) 提供詳細重現與原始方案；在 [#14](https://github.com/teddashh/multi-ai-chat-desktop/pull/14) 補上 serializer regression tests；透過 [#39](https://github.com/teddashh/multi-ai-chat-desktop/pull/39)、[#40](https://github.com/teddashh/multi-ai-chat-desktop/pull/40) 改善 Grok challenge 與 focus stage；並在 [#51](https://github.com/teddashh/multi-ai-chat-desktop/pull/51) 貢獻全寬 transcript 與隨捲動更新的 provider focus。
-- [CE Lin（`@ChingEnLin`）](https://github.com/ChingEnLin) 在 [#41](https://github.com/teddashh/multi-ai-chat-desktop/issues/41) 提供 provider status 回報，並透過 [#42](https://github.com/teddashh/multi-ai-chat-desktop/pull/42) 貢獻 ChatGPT、Gemini 與 Grok adapter 修正。
+- [Rumi-3653](https://github.com/Rumi-3653) 在 [#78](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/78) 貢獻 ChatGPT v7 logged-out detector 修正。
+- [George Ku（`@ufgeorge`）](https://github.com/ufgeorge) 在 [#80](https://github.com/TED-H-com/multi-ai-chat-desktop/issues/80) 回報 provider 用量造成腦力激盪中斷，促成 v1.8.6 恢復流程。
+- [Dave Tseng（`@DaveTseng2019`）](https://github.com/DaveTseng2019) 貢獻 `v1.3.1` overlay 可靠性修正；在 [#10](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/10)、[#11](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/11)、[#12](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/12) 提供詳細重現與原始方案；在 [#14](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/14) 補上 serializer regression tests；透過 [#39](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/39)、[#40](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/40) 改善 Grok challenge 與 focus stage；並在 [#51](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/51) 貢獻全寬 transcript 與隨捲動更新的 provider focus。
+- [CE Lin（`@ChingEnLin`）](https://github.com/ChingEnLin) 在 [#41](https://github.com/TED-H-com/multi-ai-chat-desktop/issues/41) 提供 provider status 回報，並透過 [#42](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/42) 貢獻 ChatGPT、Gemini 與 Grok adapter 修正。
 - 提供可重現回報與 sanitized debug log 的 Windows、macOS 使用者，直接改善了第一次啟動封裝、provider 自動化、session 延續與 release 驗證。
 
-歡迎在凍結的維護範圍內提出 Issue 或 PR。可重現的非安全 bug 與維護問題請使用 [GitHub Issues](https://github.com/teddashh/multi-ai-chat-desktop/issues)。
+歡迎在凍結的維護範圍內提出 Issue 或 PR。可重現的非安全 bug 與維護問題請使用 [GitHub Issues](https://github.com/TED-H-com/multi-ai-chat-desktop/issues)。

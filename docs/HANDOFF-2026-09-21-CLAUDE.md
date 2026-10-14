@@ -6,10 +6,10 @@
 
 - 分支：`main` @ `d8351a8`（`docs: point Latest downloads at v1.9.3 (#103)`）。
 - 正式版：**v1.9.3 Latest**  
-  https://github.com/teddashh/multi-ai-chat-desktop/releases/tag/v1.9.3
+  https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.3
 - 官網已部署，首頁下載連結是 v1.9.3：  
-  https://teddashh.github.io/multi-ai-chat-desktop/  
-  部署：https://github.com/teddashh/multi-ai-chat-desktop/actions/runs/35647668574
+  https://ted-h-com.github.io/multi-ai-chat-desktop/  
+  部署：https://github.com/TED-H-com/multi-ai-chat-desktop/actions/runs/35647668574
 - GitHub 上沒有 open issue、沒有 open PR。
 - 使用者 Windows 已裝過 **v1.9.2**，之後升到 **v1.9.3**。v1.9.3 的實機結果見下方〈五〉。
 - 本機工作樹在 `docs/v1.9.3`，相對 `main` 只多了這份交接。另有兩份**未追蹤** debug bundle，不要 commit：
@@ -72,7 +72,7 @@ Codex 接到的範圍是 PR **#96**：Meta AI optional standby。使用者後來
 
 - 分支保護先擋合併（要求 review）。使用者說自己就是那個 reviewer、repo 沒有另設 reviewer，授權用管理者權限合併。
 - **#96** 合併為 `25029bc`。Tag `v1.9.0` 指在 `d4572e1`，已公開，當時是 Latest。
-- 交接原文：https://github.com/teddashh/multi-ai-chat-desktop/blob/main/docs/HANDOFF-PR96.md
+- 交接原文：https://github.com/TED-H-com/multi-ai-chat-desktop/blob/main/docs/HANDOFF-PR96.md
 
 Codex 停下來時故意留下的限制：
 
@@ -86,7 +86,7 @@ Grok 從使用者貼上的 v1.9.0 收尾句開始。這台機器沒有圖形桌�
 
 ### 1. 收 v1.9.0 的 PR／issue
 
-- **#96** 當時已經 merged。補了發布說明：https://github.com/teddashh/multi-ai-chat-desktop/pull/96#issuecomment-5761298225
+- **#96** 當時已經 merged。補了發布說明：https://github.com/TED-H-com/multi-ai-chat-desktop/pull/96#issuecomment-5761298225
 - **#95**（增加模型）關成 completed。Meta 五選四已出貨。
 - 使用者接著說 #92／#97 若不能跑實機就關掉。Grok **先把 #97 未合併就關閉**，這是錯的。使用者指出不該留未合併尾巴。
 
@@ -120,7 +120,7 @@ Grok 從使用者貼上的 v1.9.0 收尾句開始。這台機器沒有圖形桌�
 - 四語提示改成：要在這個視窗登入；別的瀏覽器登入回不來。
 - `docs/SPEC.md` §5.2 與 `scripts/check-adapters.mjs` 同步。§5.1 四家種子沒有放寬。
 
-Tag **v1.9.2** 已公開（曾是 Latest）。四個安裝包 SHA-256 與 portable ZIP（含 `PORTABLE`）核對過。Release run：https://github.com/teddashh/multi-ai-chat-desktop/actions/runs/35630953968
+Tag **v1.9.2** 已公開（曾是 Latest）。四個安裝包 SHA-256 與 portable ZIP（含 `PORTABLE`）核對過。Release run：https://github.com/TED-H-com/multi-ai-chat-desktop/actions/runs/35630953968
 
 官網一度仍寫 v1.9.1。**#101** 合併 `f575990` 後才改到 v1.9.2。
 
@@ -148,7 +148,7 @@ eefb2d2c1e3801c38bbcb332d63d569fc526f266e1a9a683ece2d8aec1954b60  Multi-AI.Chat.
 773a312de505c85906b328e0b2979669f0148db2645142d87666f06c364794e9  Multi-AI.Chat.Desktop_1.9.3_amd64.AppImage
 ```
 
-Release run：https://github.com/teddashh/multi-ai-chat-desktop/actions/runs/35645364473
+Release run：https://github.com/TED-H-com/multi-ai-chat-desktop/actions/runs/35645364473
 
 **#103** 合併 `d8351a8`，README／官網／`docs/RELEASE_NOTES_v1.9.3.md` 改指向 v1.9.3。Pages 部署成功，線上 HTML 已是 `releases/tag/v1.9.3`。
 

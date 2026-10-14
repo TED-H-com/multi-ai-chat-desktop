@@ -23,8 +23,8 @@ Also includes the v1.9.1 Grok Heavy resume-timer patch.
 
 ## Verification / 驗證
 
-- CI on [#100](https://github.com/teddashh/multi-ai-chat-desktop/pull/100): adapters, frontend, three-platform Clippy, and CodeQL passed.
-- [#100](https://github.com/teddashh/multi-ai-chat-desktop/pull/100) CI：adapters、frontend、三平台 Clippy、CodeQL 通過。
+- CI on [#100](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/100): adapters, frontend, three-platform Clippy, and CodeQL passed.
+- [#100](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/100) CI：adapters、frontend、三平台 Clippy、CodeQL 通過。
 - Release workflow for tag `v1.9.2` built Windows installer + portable zip, Apple Silicon DMG, and Linux AppImage. SHA-256 matched the published assets, and the portable zip CRC-tested clean with a `PORTABLE` marker.
 - `v1.9.2` Release workflow 產出 Windows 安裝版與 portable zip、Apple Silicon DMG、Linux AppImage。SHA-256 與已發布檔案相符，portable zip CRC 通過且含 `PORTABLE` 標記。
 - **Authenticated Meta send/receive was not re-run for this tag.** Confirm login reaches `logged_in` and survives restart on a real Windows build.
@@ -32,6 +32,6 @@ Also includes the v1.9.1 Grok Heavy resume-timer patch.
 
 ## Downloads / 下載
 
-Published: https://github.com/teddashh/multi-ai-chat-desktop/releases/tag/v1.9.2
+Published: https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.2
 
-**Full changelog:** https://github.com/teddashh/multi-ai-chat-desktop/compare/v1.9.1...v1.9.2
+**Full changelog:** https://github.com/TED-H-com/multi-ai-chat-desktop/compare/v1.9.1...v1.9.2

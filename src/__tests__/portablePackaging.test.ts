@@ -9,7 +9,7 @@ const portablePackScript = readFileSync(
 describe('portable package instructions', () => {
   it('points users to releases instead of update controls hidden in portable mode', () => {
     expect(portablePackScript).toContain(
-      'https://github.com/teddashh/multi-ai-chat-desktop/releases/latest',
+      'https://github.com/TED-H-com/multi-ai-chat-desktop/releases/latest',
     );
     expect(portablePackScript).not.toContain('Settings -> Check for updates');
   });

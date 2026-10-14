@@ -33,10 +33,10 @@ Multi-AI Chat Desktop `v1.6.4` 修正 provider 連線狀態與安全驗證頁的
 
 ## Contributors / 貢獻者
 
-- Thank you to [Dave Tseng (`@DaveTseng2019`)](https://github.com/DaveTseng2019) for the original Grok challenge-state repair in [#39](https://github.com/teddashh/multi-ai-chat-desktop/pull/39) and the expanded focus-stage proposal and implementation in [#40](https://github.com/teddashh/multi-ai-chat-desktop/pull/40).
-- 感謝 [Dave Tseng（`@DaveTseng2019`）](https://github.com/DaveTseng2019) 透過 [#39](https://github.com/teddashh/multi-ai-chat-desktop/pull/39) 提出 Grok 驗證狀態修正，並在 [#40](https://github.com/teddashh/multi-ai-chat-desktop/pull/40) 提案與實作放大 focus stage。
-- Thank you to [CE Lin (`@ChingEnLin`)](https://github.com/ChingEnLin) for the reproducible provider-status report in [#41](https://github.com/teddashh/multi-ai-chat-desktop/issues/41) and the ChatGPT, Gemini, and Grok repair contributed through [#42](https://github.com/teddashh/multi-ai-chat-desktop/pull/42).
-- 感謝 [CE Lin（`@ChingEnLin`）](https://github.com/ChingEnLin) 在 [#41](https://github.com/teddashh/multi-ai-chat-desktop/issues/41) 提供可重現的 provider 狀態回報，並透過 [#42](https://github.com/teddashh/multi-ai-chat-desktop/pull/42) 貢獻 ChatGPT、Gemini 與 Grok 修正。
+- Thank you to [Dave Tseng (`@DaveTseng2019`)](https://github.com/DaveTseng2019) for the original Grok challenge-state repair in [#39](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/39) and the expanded focus-stage proposal and implementation in [#40](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/40).
+- 感謝 [Dave Tseng（`@DaveTseng2019`）](https://github.com/DaveTseng2019) 透過 [#39](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/39) 提出 Grok 驗證狀態修正，並在 [#40](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/40) 提案與實作放大 focus stage。
+- Thank you to [CE Lin (`@ChingEnLin`)](https://github.com/ChingEnLin) for the reproducible provider-status report in [#41](https://github.com/TED-H-com/multi-ai-chat-desktop/issues/41) and the ChatGPT, Gemini, and Grok repair contributed through [#42](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/42).
+- 感謝 [CE Lin（`@ChingEnLin`）](https://github.com/ChingEnLin) 在 [#41](https://github.com/TED-H-com/multi-ai-chat-desktop/issues/41) 提供可重現的 provider 狀態回報，並透過 [#42](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/42) 貢獻 ChatGPT、Gemini 與 Grok 修正。
 
 ## Validation / 驗證
 
@@ -66,4 +66,4 @@ Multi-AI Chat Desktop `v1.6.4` 修正 provider 連線狀態與安全驗證頁的
 - Linux remains CI-packaged without a new maintainer-owned real-device launch report. Live completion of Gemini and Grok challenge pages also remains dependent on provider, account, network, and platform behavior.
 - Linux 仍由 CI 封裝，沒有 maintainer 自有實機的最新啟動回報；Gemini 與 Grok 驗證頁能否完成，也仍取決於 provider、帳號、網路與平台行為。
 
-**Full changelog:** https://github.com/teddashh/multi-ai-chat-desktop/compare/v1.6.3...v1.6.4
+**Full changelog:** https://github.com/TED-H-com/multi-ai-chat-desktop/compare/v1.6.3...v1.6.4

@@ -12,8 +12,8 @@ Multi-AI Chat Desktop `v1.8.1` 是聚焦於 provider 相容性與原始碼安全
 - Grok 專用、有界且唯讀的 host probe，即使頂層頁面標題仍為 `Grok`，也能辨識已知的內嵌 Turnstile 標記。
 - Detection runs only while the automation bridge is absent, does not mutate the provider document, and rejects stale probe results before reporting the provider as blocked.
 - 偵測只會在 automation bridge 尚未存在時執行，不會修改 provider document，且會拒絕過期的 probe 結果，再把 provider 回報為 blocked。
-- This resolves the actionable status-reporting portion of [#53](https://github.com/teddashh/multi-ai-chat-desktop/issues/53). It does not bypass Turnstile or make a system-browser login authenticate the app's isolated WebView profile.
-- 這解決了 [#53](https://github.com/teddashh/multi-ai-chat-desktop/issues/53) 中可處理的狀態回報問題；它不會繞過 Turnstile，也不會讓系統瀏覽器登入替 app 內隔離的 WebView profile 完成驗證。
+- This resolves the actionable status-reporting portion of [#53](https://github.com/TED-H-com/multi-ai-chat-desktop/issues/53). It does not bypass Turnstile or make a system-browser login authenticate the app's isolated WebView profile.
+- 這解決了 [#53](https://github.com/TED-H-com/multi-ai-chat-desktop/issues/53) 中可處理的狀態回報問題；它不會繞過 Turnstile，也不會讓系統瀏覽器登入替 app 內隔離的 WebView profile 完成驗證。
 
 ## Restored four-provider defaults / 恢復四家 provider 預設
 
@@ -67,4 +67,4 @@ Multi-AI Chat Desktop `v1.8.1` 是聚焦於 provider 相容性與原始碼安全
 - The current Tauri/Wry Linux GTK3 dependency graph retains the documented medium-severity `glib::VariantStrIter` advisory. The app does not directly call the affected API, and this release does not represent that upstream risk as fixed.
 - 目前 Tauri／Wry 的 Linux GTK3 dependency graph 仍保留已記錄的 medium-severity `glib::VariantStrIter` advisory；本 app 未直接呼叫受影響 API，本版也不會把這項上游風險宣稱為已修復。
 
-**Full changelog:** https://github.com/teddashh/multi-ai-chat-desktop/compare/v1.8.0...v1.8.1
+**Full changelog:** https://github.com/TED-H-com/multi-ai-chat-desktop/compare/v1.8.0...v1.8.1

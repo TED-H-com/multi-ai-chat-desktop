@@ -37,8 +37,8 @@ Multi-AI Chat Desktop `v1.8.0` 讓長篇多 provider 對話更容易閱讀，同
 
 ## Contributors / 貢獻者
 
-- Thank you to [Dave Tseng (`@DaveTseng2019`)](https://github.com/DaveTseng2019) for proposing and implementing the transcript maximize control and scroll-linked provider focus in [#51](https://github.com/teddashh/multi-ai-chat-desktop/pull/51), then collaborating on the lifecycle, accessibility, and performance hardening included in this release.
-- 感謝 [Dave Tseng（`@DaveTseng2019`）](https://github.com/DaveTseng2019) 在 [#51](https://github.com/teddashh/multi-ai-chat-desktop/pull/51) 提案並實作逐字稿放大控制與隨捲動更新的 provider 焦點，也一起完成本版所需的生命週期、可及性與效能強化。
+- Thank you to [Dave Tseng (`@DaveTseng2019`)](https://github.com/DaveTseng2019) for proposing and implementing the transcript maximize control and scroll-linked provider focus in [#51](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/51), then collaborating on the lifecycle, accessibility, and performance hardening included in this release.
+- 感謝 [Dave Tseng（`@DaveTseng2019`）](https://github.com/DaveTseng2019) 在 [#51](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/51) 提案並實作逐字稿放大控制與隨捲動更新的 provider 焦點，也一起完成本版所需的生命週期、可及性與效能強化。
 
 ## Validation / 驗證
 
@@ -68,4 +68,4 @@ Multi-AI Chat Desktop `v1.8.0` 讓長篇多 provider 對話更容易閱讀，同
 - Linux remains CI-packaged without a new maintainer-owned real-device launch report.
 - Linux 仍由 CI 封裝，沒有 maintainer 自有實機的最新啟動回報。
 
-**Full changelog:** https://github.com/teddashh/multi-ai-chat-desktop/compare/v1.7.0...v1.8.0
+**Full changelog:** https://github.com/TED-H-com/multi-ai-chat-desktop/compare/v1.7.0...v1.8.0

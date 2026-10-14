@@ -35,10 +35,10 @@ Multi-AI Chat Desktop `v1.7.0` 讓結構化協作更容易開始，也更安全�
 
 ## Contributors / 貢獻者
 
-- Thank you to [Dave Tseng (`@DaveTseng2019`)](https://github.com/DaveTseng2019) for the session-reset readiness repair in [#44](https://github.com/teddashh/multi-ai-chat-desktop/pull/44), the clearer blocked-login guidance in [#48](https://github.com/teddashh/multi-ai-chat-desktop/pull/48), and the Grok-safe default role proposal and implementation in [#49](https://github.com/teddashh/multi-ai-chat-desktop/pull/49).
-- 感謝 [Dave Tseng（`@DaveTseng2019`）](https://github.com/DaveTseng2019) 透過 [#44](https://github.com/teddashh/multi-ai-chat-desktop/pull/44) 修正 session reset 後的就緒判斷、透過 [#48](https://github.com/teddashh/multi-ai-chat-desktop/pull/48) 改善登入阻擋說明，並在 [#49](https://github.com/teddashh/multi-ai-chat-desktop/pull/49) 提案與實作避開 Grok 阻擋的預設角色。
-- Thank you to [CE Lin (`@ChingEnLin`)](https://github.com/ChingEnLin) for designing and implementing configurable structured-mode role assignments in [#46](https://github.com/teddashh/multi-ai-chat-desktop/pull/46).
-- 感謝 [CE Lin（`@ChingEnLin`）](https://github.com/ChingEnLin) 透過 [#46](https://github.com/teddashh/multi-ai-chat-desktop/pull/46) 設計並實作結構化模式的可自訂角色配置。
+- Thank you to [Dave Tseng (`@DaveTseng2019`)](https://github.com/DaveTseng2019) for the session-reset readiness repair in [#44](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/44), the clearer blocked-login guidance in [#48](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/48), and the Grok-safe default role proposal and implementation in [#49](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/49).
+- 感謝 [Dave Tseng（`@DaveTseng2019`）](https://github.com/DaveTseng2019) 透過 [#44](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/44) 修正 session reset 後的就緒判斷、透過 [#48](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/48) 改善登入阻擋說明，並在 [#49](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/49) 提案與實作避開 Grok 阻擋的預設角色。
+- Thank you to [CE Lin (`@ChingEnLin`)](https://github.com/ChingEnLin) for designing and implementing configurable structured-mode role assignments in [#46](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/46).
+- 感謝 [CE Lin（`@ChingEnLin`）](https://github.com/ChingEnLin) 透過 [#46](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/46) 設計並實作結構化模式的可自訂角色配置。
 
 ## Validation / 驗證
 
@@ -68,4 +68,4 @@ Multi-AI Chat Desktop `v1.7.0` 讓結構化協作更容易開始，也更安全�
 - Linux remains CI-packaged without a new maintainer-owned real-device launch report.
 - Linux 仍由 CI 封裝，沒有 maintainer 自有實機的最新啟動回報。
 
-**Full changelog:** https://github.com/teddashh/multi-ai-chat-desktop/compare/v1.6.4...v1.7.0
+**Full changelog:** https://github.com/TED-H-com/multi-ai-chat-desktop/compare/v1.6.4...v1.7.0

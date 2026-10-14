@@ -25,7 +25,7 @@
 ## 驗證依據
 
 - 前一個程式收斂點 `9bc46e9`：676 個 Vitest、22 個 Agent 測試、前端 build 與遠端 10 項檢查通過。
-- 本輪最終測試數與建置結果見 [v1.9.0 release notes](RELEASE_NOTES_v1.9.0.md) 及 [GitHub Actions](https://github.com/teddashh/multi-ai-chat-desktop/actions)。
+- 本輪最終測試數與建置結果見 [v1.9.0 release notes](RELEASE_NOTES_v1.9.0.md) 及 [GitHub Actions](https://github.com/TED-H-com/multi-ai-chat-desktop/actions)。
 - Grok CLI 分工包含 Settings、workflow/replay、engine、native lifecycle、FocusPane 和 release docs；輸出逐項審閱，未完成 verdict 的執行不計為通過。
 - 原生測試／Clippy 與安裝包依 Windows、macOS、Linux CI；不宣稱本機或 VM 已跑過 native app。
 
@@ -36,4 +36,4 @@
 - 登入後 profile 持久性、真實 provider error 匯出、ChatGPT Astra ↔ Grok Heavy 慢速交接及 macOS Grok challenge，仍待使用者實機回報。
 - 未知的網站 DOM／地區／配額差異仍可能造成 Meta 不可用；請以 provider、OS、版本與去識別化診斷回報，勿附帳密或對話內容。
 
-正式發布入口：[v1.9.0](https://github.com/teddashh/multi-ai-chat-desktop/releases/tag/v1.9.0)。本次沒有另做 VM 部署。
+正式發布入口：[v1.9.0](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.0)。本次沒有另做 VM 部署。

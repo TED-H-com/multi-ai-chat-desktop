@@ -28,9 +28,9 @@ Multi-AI Chat Desktop `v1.6.0` 以專用腦力激盪預設與聚焦的大字體�
 
 ## Contributor thanks / 貢獻者致謝
 
-Thanks to Dave Tseng ([`@DaveTseng2019`](https://github.com/DaveTseng2019)) for reporting and implementing the large-font connection-strip fix in [PR #25](https://github.com/teddashh/multi-ai-chat-desktop/pull/25), including the WebView synchronization improvement and regression tests.
+Thanks to Dave Tseng ([`@DaveTseng2019`](https://github.com/DaveTseng2019)) for reporting and implementing the large-font connection-strip fix in [PR #25](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/25), including the WebView synchronization improvement and regression tests.
 
-感謝 Dave Tseng（[`@DaveTseng2019`](https://github.com/DaveTseng2019)）在 [PR #25](https://github.com/teddashh/multi-ai-chat-desktop/pull/25) 回報並實作大字體連線區修正，也一併改善 WebView 同步並補上 regression tests。
+感謝 Dave Tseng（[`@DaveTseng2019`](https://github.com/DaveTseng2019)）在 [PR #25](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/25) 回報並實作大字體連線區修正，也一併改善 WebView 同步並補上 regression tests。
 
 ## Validation / 驗證
 
@@ -67,4 +67,4 @@ Thanks to Dave Tseng ([`@DaveTseng2019`](https://github.com/DaveTseng2019)) for 
 - Provider websites can change independently. Attach a sanitized exported debug log when reporting automation failures.
 - Provider 網頁可能獨立改版；回報自動化失敗時，請附上已去識別化的匯出 debug log。
 
-**Full changelog:** https://github.com/teddashh/multi-ai-chat-desktop/compare/v1.5.1...v1.6.0
+**Full changelog:** https://github.com/TED-H-com/multi-ai-chat-desktop/compare/v1.5.1...v1.6.0

@@ -18,7 +18,7 @@ Requirements:
 Portable notes:
 - Keep the PORTABLE marker file next to the .exe.
 - Portable mode hides the in-app update controls. Download newer releases manually from:
-  https://github.com/teddashh/multi-ai-chat-desktop/releases/latest
+  https://github.com/TED-H-com/multi-ai-chat-desktop/releases/latest
 `;
 
 function parseArgs(argv) {

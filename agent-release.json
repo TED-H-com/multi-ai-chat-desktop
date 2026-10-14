@@ -6,7 +6,7 @@
   "product": {
     "name": "Multi-AI Chat Desktop",
     "package": "multi-ai-chat-desktop",
-    "repository": "https://github.com/teddashh/multi-ai-chat-desktop",
+    "repository": "https://github.com/TED-H-com/multi-ai-chat-desktop",
     "runtime": "Tauri 2 native desktop development build",
     "distributionLane": "source-development",
     "platforms": ["windows", "macos", "linux"],

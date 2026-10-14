@@ -13,9 +13,9 @@ Multi-AI Chat Desktop `v1.9.1` 是 v1.9.0 線上的 provider 相容性補丁。�
 - Automated regressions cover backup-poll and MutationObserver paths, including two resume cycles with unchanged text.
 - 自動回歸涵蓋 backup poll 與 MutationObserver 兩條路徑，包括文字不變時連續兩次恢復生成。
 
-This lands the leftover from [#97](https://github.com/teddashh/multi-ai-chat-desktop/pull/97) via [#98](https://github.com/teddashh/multi-ai-chat-desktop/pull/98). It does not replace the v1.8.9 Heavy/Astra terminal-handoff work.
+This lands the leftover from [#97](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/97) via [#98](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/98). It does not replace the v1.8.9 Heavy/Astra terminal-handoff work.
 
-這透過 [#98](https://github.com/teddashh/multi-ai-chat-desktop/pull/98) 收合 [#97](https://github.com/teddashh/multi-ai-chat-desktop/pull/97) 留下的修正。它不取代 v1.8.9 的 Heavy／Astra 終端交接工作。
+這透過 [#98](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/98) 收合 [#97](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/97) 留下的修正。它不取代 v1.8.9 的 Heavy／Astra 終端交接工作。
 
 ## Also in this line / 本線仍包含
 
@@ -26,8 +26,8 @@ This lands the leftover from [#97](https://github.com/teddashh/multi-ai-chat-des
 
 - Local `pnpm verify` on the rebased engine fix: 730 Vitest tests across 62 files, 22 agent tests, TypeScript, ESLint, injected build, and adapter validation passed.
 - 本機 `pnpm verify` 通過：62 個檔案／730 項 Vitest、22 項 agent tests、型別／lint／injected build／adapter 驗證。
-- GitHub CI on [#98](https://github.com/teddashh/multi-ai-chat-desktop/pull/98) and the following `main` push: frontend, three-platform Clippy, and CodeQL passed.
-- [#98](https://github.com/teddashh/multi-ai-chat-desktop/pull/98) 與後續 `main` CI：frontend、三平台 Clippy、CodeQL 通過。
+- GitHub CI on [#98](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/98) and the following `main` push: frontend, three-platform Clippy, and CodeQL passed.
+- [#98](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/98) 與後續 `main` CI：frontend、三平台 Clippy、CodeQL 通過。
 - **No new authenticated Meta, Grok Heavy ↔ ChatGPT Astra, or VM smoke was run for v1.9.1.**
 - **v1.9.1 沒有新增已登入的 Meta、Grok Heavy ↔ ChatGPT Astra，或 VM smoke。**
 
@@ -44,4 +44,4 @@ This lands the leftover from [#97](https://github.com/teddashh/multi-ai-chat-des
 - A real-account ChatGPT↔Grok slow handoff, the Grok Cloudflare challenge path, and a new Apple Silicon launch/provider-login smoke were not manually repeated.
 - 真實帳號的 ChatGPT↔Grok 慢速接力、Grok Cloudflare challenge，以及新的 Apple Silicon 啟動與 provider 登入 smoke 都沒有人工重做。
 
-**Full changelog:** https://github.com/teddashh/multi-ai-chat-desktop/compare/v1.9.0...v1.9.1
+**Full changelog:** https://github.com/TED-H-com/multi-ai-chat-desktop/compare/v1.9.0...v1.9.1

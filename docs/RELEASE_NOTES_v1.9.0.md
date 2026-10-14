@@ -52,4 +52,4 @@ Multi-AI Chat Desktop `v1.9.0` 提供五家可選、**同時只啟用四家**。
 - Meta AI does not bypass login, regional availability, rate limits, or later provider-side gates.
 - Meta AI 不會繞過登入、區域、用量或後續 provider 端限制。
 
-**Full changelog:** https://github.com/teddashh/multi-ai-chat-desktop/compare/v1.8.9...v1.9.0
+**Full changelog:** https://github.com/TED-H-com/multi-ai-chat-desktop/compare/v1.8.9...v1.9.0

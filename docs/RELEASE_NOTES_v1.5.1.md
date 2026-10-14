@@ -54,4 +54,4 @@ Multi-AI Chat Desktop `v1.5.1` 是聚焦於安全與維護的版本。它強化 
 - Linux remains CI-packaged without a new real-device launch report.
 - Provider websites can change independently. Attach a sanitized exported debug log when reporting automation failures.
 
-**Full changelog:** https://github.com/teddashh/multi-ai-chat-desktop/compare/v1.5.0...v1.5.1
+**Full changelog:** https://github.com/TED-H-com/multi-ai-chat-desktop/compare/v1.5.0...v1.5.1

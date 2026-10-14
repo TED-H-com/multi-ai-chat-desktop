@@ -4,7 +4,7 @@
 
 一度質問するだけで、ログイン済みの4つのAI Webセッションが回答し、レビューし、反論しながら結果を磨きます。**ChatGPT、Claude、Gemini、Grokが引き続きデフォルトで、Meta AIはSettingsで選べる実験的な5番目のスタンバイです。** Multi-AI Chat Desktopは、4つのチャットを横に並べただけではない、Tauri 2製のマルチAIワークフローハブです。
 
-[**公式サイトを見る →**](https://teddashh.github.io/multi-ai-chat-desktop/?lang=ja) · [v1.9.6をダウンロード](https://github.com/teddashh/multi-ai-chat-desktop/releases/tag/v1.9.6) · [すべてのリリース](https://github.com/teddashh/multi-ai-chat-desktop/releases) · MIT · APIキー不要 · アナリティクスなし
+[**公式サイトを見る →**](https://ted-h-com.github.io/multi-ai-chat-desktop/?lang=ja) · [v1.9.6をダウンロード](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.6) · [すべてのリリース](https://github.com/TED-H-com/multi-ai-chat-desktop/releases) · MIT · APIキー不要 · アナリティクスなし
 
 > このアプリは、普段利用しているプロバイダーのWebページを自動操作します。プロバイダー側のUI変更でアダプターが一時的に動かなくなる場合があり、自動操作には各サービスの利用規約が適用されることがあります。利用権限のあるアカウントとコンテンツだけを使用してください。ログイン、契約、年齢、利用上限、セキュリティ確認を回避する機能はありません。
 
@@ -12,7 +12,7 @@
 
 ## まずインストール
 
-現在の安定版は[**v1.9.6ダウンロードページ**](https://github.com/teddashh/multi-ai-chat-desktop/releases/tag/v1.9.6)から入手できます。
+現在の安定版は[**v1.9.6ダウンロードページ**](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.6)から入手できます。
 
 | プラットフォーム | ダウンロード | 初回起動時の注意 |
 |---|---|---|
@@ -32,7 +32,7 @@
 
 Ad-hoc署名はbundleの完全性を守り、`v1.0.0` で発生した誤った「アプリが壊れています」判定を防ぎます。ただし、この例外を完全になくせるのはDeveloper ID署名とnotarizationだけです。管理対象Macでは利用者による例外指定が禁止されている場合があります。
 
-Windows portable版にはアプリ内更新UIがありません。[GitHub Releases](https://github.com/teddashh/multi-ai-chat-desktop/releases/latest)から手動で更新してください。インストール版は新しいリリースを確認してダウンロードページを開けますが、アプリ自身が更新をダウンロード／インストールすることはありません。
+Windows portable版にはアプリ内更新UIがありません。[GitHub Releases](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/latest)から手動で更新してください。インストール版は新しいリリースを確認してダウンロードページを開けますが、アプリ自身が更新をダウンロード／インストールすることはありません。
 
 ## v1.9.6の主な変更
 
@@ -49,11 +49,11 @@ Windows portable版にはアプリ内更新UIがありません。[GitHub Releas
 - **任意のMeta AIスタンバイ。** 選択肢は5、同時に有効なのは4つ。従来の4つがデフォルトのまま、Settingsで1つだけ入れ替えできます。Profileは保持され、roleとtargetsは現在の4つに修復されます。
 - **Portraitと診断。** Meta AI専用のportraitがあります。Event logとdebug bundleはpromptや返信を保存せず、Meta AIとして表示します。
 
-詳細は[リリースノート](https://github.com/teddashh/multi-ai-chat-desktop/releases/tag/v1.9.6)をご覧ください。
+詳細は[リリースノート](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.6)をご覧ください。
 
 ## Desktopとブラウザー拡張のどちらを選ぶ？
 
-| | **Desktop（このrepo）** | [**ブラウザー拡張**](https://teddashh.github.io/multi-ai-chat/?lang=ja) |
+| | **Desktop（このrepo）** | [**ブラウザー拡張**](https://ted-h-com.github.io/multi-ai-chat/?lang=ja) |
 |---|---|---|
 | 最適な用途 | 完全なガイド付きworkflow、実プロバイダーのfocus表示、local session、snapshot／replay、ローカルテキストファイル | Chromeと既存のプロバイダータブ内で軽量に利用 |
 | 実行方式 | プロバイダーごとに独立したローカルprofileを持つTauriアプリ | Chrome Side Panelと通常のブラウザータブ |
@@ -161,10 +161,10 @@ Multi-AI Chat Desktopは **Ted Huang／TED-H**（[TED@TED-H.com](mailto:TED@TED-
 
 コントリビューターへの感謝：
 
-- [Rumi-3653](https://github.com/Rumi-3653) は [#78](https://github.com/teddashh/multi-ai-chat-desktop/pull/78) でChatGPT v7 logged-out detector修正を提供しました。
-- [George Ku（`@ufgeorge`）](https://github.com/ufgeorge) は [#80](https://github.com/teddashh/multi-ai-chat-desktop/issues/80) でprovider上限によるBrainstorm中断を報告し、v1.8.6の復旧flowにつながりました。
-- [Dave Tseng（`@DaveTseng2019`）](https://github.com/DaveTseng2019) は `v1.3.1` のoverlay信頼性修正、[#10](https://github.com/teddashh/multi-ai-chat-desktop/pull/10)・[#11](https://github.com/teddashh/multi-ai-chat-desktop/pull/11)・[#12](https://github.com/teddashh/multi-ai-chat-desktop/pull/12)での詳細な再現と初期案、[#14](https://github.com/teddashh/multi-ai-chat-desktop/pull/14)のserializer regression test、[#39](https://github.com/teddashh/multi-ai-chat-desktop/pull/39)・[#40](https://github.com/teddashh/multi-ai-chat-desktop/pull/40)のGrok challenge／focus stage改善、[#51](https://github.com/teddashh/multi-ai-chat-desktop/pull/51)の全幅transcript／scroll連動provider focusに貢献しました。
-- [CE Lin（`@ChingEnLin`）](https://github.com/ChingEnLin) は [#41](https://github.com/teddashh/multi-ai-chat-desktop/issues/41) のprovider status報告と、[#42](https://github.com/teddashh/multi-ai-chat-desktop/pull/42) のChatGPT・Gemini・Grok adapter修正に貢献しました。
+- [Rumi-3653](https://github.com/Rumi-3653) は [#78](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/78) でChatGPT v7 logged-out detector修正を提供しました。
+- [George Ku（`@ufgeorge`）](https://github.com/ufgeorge) は [#80](https://github.com/TED-H-com/multi-ai-chat-desktop/issues/80) でprovider上限によるBrainstorm中断を報告し、v1.8.6の復旧flowにつながりました。
+- [Dave Tseng（`@DaveTseng2019`）](https://github.com/DaveTseng2019) は `v1.3.1` のoverlay信頼性修正、[#10](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/10)・[#11](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/11)・[#12](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/12)での詳細な再現と初期案、[#14](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/14)のserializer regression test、[#39](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/39)・[#40](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/40)のGrok challenge／focus stage改善、[#51](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/51)の全幅transcript／scroll連動provider focusに貢献しました。
+- [CE Lin（`@ChingEnLin`）](https://github.com/ChingEnLin) は [#41](https://github.com/TED-H-com/multi-ai-chat-desktop/issues/41) のprovider status報告と、[#42](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/42) のChatGPT・Gemini・Grok adapter修正に貢献しました。
 - 再現可能な報告とsanitized debug logを共有したWindows／macOSユーザーの協力により、初回起動package、provider自動操作、session continuity、release verificationが改善されました。
 
-凍結済みmaintenance scope内のIssueとPRを歓迎します。再現可能な非security bugとmaintenanceに関する質問は [GitHub Issues](https://github.com/teddashh/multi-ai-chat-desktop/issues)をご利用ください。
+凍結済みmaintenance scope内のIssueとPRを歓迎します。再現可能な非security bugとmaintenanceに関する質問は [GitHub Issues](https://github.com/TED-H-com/multi-ai-chat-desktop/issues)をご利用ください。

@@ -25,7 +25,7 @@ function button(node: ReactNode, label: string): ReactElement<ButtonProps> | und
 const links = [
   {
     kind: 'download',
-    url: 'https://github.com/teddashh/multi-ai-chat-desktop/releases/tag/v1.8.9',
+    url: 'https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.8.9',
     label: t('settings.downloadPage', 'en'),
     error: "Couldn't open the download page. Please try again.",
     render: (url: string) => DownloadPageLink({ url }),
