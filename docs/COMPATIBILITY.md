@@ -2,6 +2,10 @@
 
 > Last reviewed: 2026-09-30. The 2026-09-26 review reflected live `v1.9.4` evidence from a Windows zh-TW session and automated checks of later source changes. `v1.9.5` includes the page-replacement failure and the unconditional composer-fill yield. Those fixes have automated coverage only, and there is no live field check of them yet. The 2026-09-30 notes for ChatGPT adapter v9 and Grok adapter v8 are automated coverage only. `v1.9.6` ships the engine changes for ChatGPT's Chat/Work layout and bundles ChatGPT adapter v9 and Grok adapter v8; there is no live field check of them yet. This document records evidence, not a guarantee. Provider DOM and login flows can change without notice.
 
+## 2026-10-19 maintenance evidence
+
+[Issue #132](https://github.com/TED-H-com/multi-ai-chat-desktop/issues/132) reports a visible ChatGPT reply followed by `composer cleared before a matching user turn appeared` on v1.9.6 / Windows 11. A deterministic engine regression reproduces that error when a reply without a matching user bubble appears just before send confirmation, while final controls are still rendering. The v1.9.7 candidate uses the existing guarded reply evidence for confirmation too. Three deadline cases and five negative cases pass; the full frontend suite has 778 tests plus 22 agent tests. Chromium running the compiled engine reproduces the old error and verifies final-answer completion after the fix with one send click. This evidence is automated/simulated; the reporter's authenticated Windows session and packaged Windows/Apple Silicon launches remain **Pending**. Existing historical field results below retain their original dates and limits. See [v1.9.7 notes](RELEASE_NOTES_v1.9.7.md).
+
 ## Status legend
 
 - **Verified**: exercised manually on the named platform or validated by a focused automated test.

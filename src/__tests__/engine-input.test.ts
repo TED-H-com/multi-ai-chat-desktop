@@ -1694,6 +1694,93 @@ describe('injected engine input hardening', () => {
     expect(errorDone(env)).toBeUndefined();
   });
 
+  it.each([
+    { stage: 'first click', elapsed: 0, delay: CHATGPT_INITIAL_SEND_CONFIRMATION_DELAY_MS, clicks: 1, keys: 0 },
+    { stage: 'retry click', elapsed: CHATGPT_INITIAL_SEND_CONFIRMATION_DELAY_MS, delay: CHATGPT_FALLBACK_SEND_CONFIRMATION_DELAY_MS, clicks: 2, keys: 0 },
+    { stage: 'Enter fallback', elapsed: CHATGPT_INITIAL_SEND_CONFIRMATION_DELAY_MS + CHATGPT_FALLBACK_SEND_CONFIRMATION_DELAY_MS, delay: CHATGPT_FALLBACK_SEND_CONFIRMATION_DELAY_MS, clicks: 2, keys: 3 },
+  ])('keeps an anchorless ChatGPT reply alive across the $stage confirmation deadline', async ({ elapsed, delay, clicks, keys }) => {
+    vi.useFakeTimers();
+    const env = createEnv({ inputKind: 'textarea' });
+    const handler = await installEngine(env);
+    dispatchAdapter(handler, {
+      provider: 'chatgpt',
+      thinkingDetectors: ['.thinking'],
+      timing: { doneDelayMs: 3_000, chunkDebounceMs: 0, statusIntervalMs: 1_000_000, backupPollMs: 1_000_000 },
+    });
+
+    send(handler, 'question without a matching user bubble', 'chatgpt');
+    await vi.advanceTimersByTimeAsync(PRE_SEND_DELAY_MS + elapsed);
+    env.input.setVisibleText('');
+    env.thinking = true;
+    FakeMutationObserver.notify();
+    await vi.advanceTimersByTimeAsync(delay - 400);
+
+    const turn = new FakeElement(env.document, 'article');
+    const response = new FakeElement(env.document, 'div', 'Answer visible before final controls');
+    turn.appendChild(response);
+    env.detectorElements.set(CHATGPT_TURN_SELECTOR, [turn]);
+    env.responses = [response];
+    env.thinking = false;
+    FakeMutationObserver.notify();
+    await vi.advanceTimersByTimeAsync(400);
+
+    expect(env.userMessages).toHaveLength(0);
+    expect(env.emitted).toContainEqual({ v: 1, action: 'RESPONSE_CHUNK', provider: 'chatgpt', payload: response.textContent });
+    expect(errorDone(env)).toBeUndefined();
+    expect(env.emitted.filter(message => message.action === 'RESPONSE_DONE')).toHaveLength(0);
+    expect(env.sendButton?.clickCount).toBe(clicks);
+    expect(keyEventCount(env.input)).toBe(keys);
+
+    response.setVisibleText('Final answer survives send confirmation');
+    const copyButton = new FakeElement(env.document, 'button');
+    copyButton.setAttribute('data-testid', CHATGPT_COPY_BUTTON_TEST_ID);
+    turn.appendChild(copyButton);
+    FakeMutationObserver.notify();
+    await vi.advanceTimersByTimeAsync(3_000 + CHATGPT_TERMINAL_STABLE_MS + CHATGPT_TERMINAL_SAMPLE_INTERVAL_MS);
+
+    expect(env.emitted.filter(message => message.action === 'RESPONSE_DONE')).toEqual([
+      { v: 1, action: 'RESPONSE_DONE', provider: 'chatgpt', payload: 'Final answer survives send confirmation' },
+    ]);
+    expect(env.sendButton?.clickCount).toBe(clicks);
+    expect(keyEventCount(env.input)).toBe(keys);
+  });
+
+  it.each(['existing element', 'remounted history', 'prompt echo', 'user message', 'no generation'] as const)(
+    'does not confirm an anchorless ChatGPT send from %s', async (kind) => {
+      vi.useFakeTimers();
+      const env = createEnv({ inputKind: 'textarea' });
+      const oldReply = new FakeElement(env.document, 'div', 'Previously displayed answer');
+      env.responses = [oldReply];
+      const handler = await installEngine(env);
+      dispatchAdapter(handler, {
+        provider: 'chatgpt',
+        thinkingDetectors: ['.thinking'],
+        timing: { doneDelayMs: 3_000, chunkDebounceMs: 0, statusIntervalMs: 1_000_000, backupPollMs: 1_000_000 },
+      });
+      const prompt = 'Current prompt must not be an answer';
+      send(handler, prompt, 'chatgpt');
+      await vi.advanceTimersByTimeAsync(PRE_SEND_DELAY_MS);
+      env.input.setVisibleText('');
+      if (kind !== 'no generation') {
+        env.thinking = true;
+        FakeMutationObserver.notify();
+        env.thinking = false;
+      }
+      const candidate = kind === 'existing element' ? oldReply : new FakeElement(env.document, 'div',
+        kind === 'remounted history' ? 'Previously displayed answer' : kind === 'prompt echo' ? prompt : 'Untrusted new text');
+      if (kind === 'existing element') candidate.setVisibleText('Historical answer changed after send');
+      if (kind === 'user message') candidate.setAttribute('data-message-author-role', 'user');
+      env.responses = [candidate];
+      FakeMutationObserver.notify();
+      await vi.advanceTimersByTimeAsync(CHATGPT_INITIAL_SEND_CONFIRMATION_DELAY_MS);
+
+      expect(env.emitted.filter(message => message.action === 'RESPONSE_CHUNK')).toHaveLength(0);
+      expect(errorDone(env)?.payload).toBe('[Error: chatgpt send could not be confirmed; composer cleared before a matching user turn appeared]');
+      expect(env.sendButton?.clickCount).toBe(1);
+      expect(keyEventCount(env.input)).toBe(0);
+    },
+  );
+
   it('does not emit a pre-send ChatGPT assistant message through the anchorless fallback', async () => {
     vi.useFakeTimers();
     const env = createEnv({ inputKind: 'textarea' });
