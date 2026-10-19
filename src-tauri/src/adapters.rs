@@ -147,8 +147,9 @@ pub async fn open_adapter_issue(
 ) -> Result<(), String> {
     crate::webviews::ensure_control_webview(&webview)?;
     let title = format!("[adapter-broken] {provider}");
-    let mut url = tauri::Url::parse("https://github.com/TED-H-com/multi-ai-chat-desktop/issues/new")
-        .map_err(|error| error.to_string())?;
+    let mut url =
+        tauri::Url::parse("https://github.com/TED-H-com/multi-ai-chat-desktop/issues/new")
+            .map_err(|error| error.to_string())?;
     url.query_pairs_mut()
         .append_pair("labels", "adapter-broken")
         .append_pair("title", &title)
