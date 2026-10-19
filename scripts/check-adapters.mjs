@@ -32,7 +32,7 @@ const expected = {
   },
   claude: {
     schemaVersion: 1,
-    adapterVersion: 4,
+    adapterVersion: 5,
     urls: {
       app: 'https://claude.ai',
       login: 'https://claude.ai/login',
@@ -44,7 +44,7 @@ const expected = {
     chunkDebounceMs: 500,
     inputSelectors: ['.ProseMirror[contenteditable="true"]', '[contenteditable="true"].ProseMirror', 'div.ProseMirror', 'fieldset div[contenteditable="true"]'],
     sendButtonSelectors: ['button[aria-label="Send Message"]', 'button[aria-label="Send message"]', 'button[aria-label="Send"]', 'fieldset button[type="button"]:last-of-type'],
-    responseSelectors: ['.font-claude-response', '[data-is-streaming] .font-claude-response', '.font-claude-message'],
+    responseSelectors: ['[data-cds="AssistantMessage"] [data-perf-reply-text]', '.font-claude-response', '[data-is-streaming] .font-claude-response', '.font-claude-message'],
     loginDetectors: ['.ProseMirror[contenteditable="true"]', '[contenteditable="true"].ProseMirror'],
     loggedOutDetectors: ['input[type="email"]', 'input[autocomplete="email"]'],
     thinkingDetectors: ['[data-is-streaming="true"]', 'button[aria-label="Stop Response"]', 'button[aria-label="Stop response"]', 'button[aria-label="Stop"]'],
