@@ -2095,18 +2095,15 @@ class InactiveSendOperationError extends Error {
     if (!waitingForResponse) return true;
     if (activeAdapter.provider === 'chatgpt') {
       const anchor = refreshChatGptUserTurnAnchor(activeAdapter);
-      // refresh drops a detached bubble. One that was already adopted is still the matching
-      // turn for this check; it does not by itself prove the composer was consumed.
+      // Use the same guarded reply evidence as response capture. ChatGPT can omit/remount
+      // the user bubble; a reply already accepted after observed generation must survive
+      // the send-confirmation deadline while its final controls are still rendering.
+      // Without an anchor, getLatestResponseCandidate still requires generation observed
+      // during this wait and rejects baseline elements/text, user messages, and prompt echoes.
+      if (getLatestResponseCandidate()) return true;
+      // A previously adopted bubble can detach, but an optimistic bubble alone does not
+      // prove the composer was consumed. Keep the bounded retry for an idle exact draft.
       if (!anchor && !chatGptUserTurnAnchorLatched) return false;
-      // ChatGPT can paint an optimistic copy of a long user turn before it has consumed the
-      // composer. That state looked like a successful send in v1.8.8, cancelled the bounded
-      // retry, and left the workflow waiting on a response that could only start after a manual
-      // click. Any post-anchor assistant candidate proves that the first send started, including
-      // Astra's plain "Pro thinking" phase; it is send evidence here, not completion evidence.
-      if (anchor) {
-        const response = getLatestResponseCandidate();
-        if (response) return true;
-      }
       return !chatGptPendingDraftStillInComposer(activeAdapter);
     }
     if (isThinking()) return true;
