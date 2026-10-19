@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import chatgptAdapterSeed from '../../adapters/chatgpt.json';
+import claudeAdapterSeed from '../../adapters/claude.json';
 import grokAdapterSeed from '../../adapters/grok.json';
 import type { AIProvider, BridgeMessage } from '../../shared/types';
 
@@ -3591,6 +3592,77 @@ describe('injected engine input hardening', () => {
     expectGrokLogin(env, 'logged_in');
   });
 
+  it.each(['cds', 'legacy'] as const)('captures only the Claude %s reply after streaming ends', async (layout) => {
+    vi.useFakeTimers();
+    const env = createEnv({ inputKind: 'contenteditable' });
+    mountProseMirrorComposer(env);
+    env.sendButton?.setAttribute('aria-label', 'Send message');
+    appendClaudeReply(env, layout, 'Earlier reply');
+    let reply: ReturnType<typeof appendClaudeReply> | undefined;
+    if (env.sendButton) env.sendButton.onClick = () => {
+      env.input.replaceChildren();
+      env.input.setVisibleText('');
+      const user = new FakeElement(env.document, 'div', 'Current prompt');
+      user.setAttribute('class', 'cds-user-message-body');
+      env.document.body.appendChild(user);
+      reply = appendClaudeReply(env, layout, 'Partial answer');
+      reply.turn.setAttribute('data-is-streaming', 'true');
+    };
+    const handler = await installEngine(env);
+    dispatchAdapter(handler, { ...claudeAdapterSeed, provider: 'claude', inputStrategy: 'prosemirror-paste', sendStrategy: 'click' });
+
+    send(handler, 'Current prompt', 'claude');
+    await flushMicrotasks();
+    await vi.advanceTimersByTimeAsync(10_000);
+
+    expect(env.sendButton?.clickCount).toBe(1);
+    expect(reply).toBeDefined();
+    expect(env.emitted.filter(message => message.action === 'RESPONSE_DONE')).toHaveLength(0);
+    expect(env.emitted).toContainEqual({ v: 1, action: 'RESPONSE_CHUNK', provider: 'claude', payload: 'Partial answer' });
+    reply!.text.setVisibleText('Complete answer');
+    reply!.turn.setAttribute('data-is-streaming', 'false');
+    FakeMutationObserver.notify();
+    await vi.advanceTimersByTimeAsync(10_000);
+
+    expect(env.emitted.filter(message => message.action === 'RESPONSE_DONE')).toEqual([
+      { v: 1, action: 'RESPONSE_DONE', provider: 'claude', payload: 'Complete answer' },
+    ]);
+    const payloads = env.emitted.filter(message => ['RESPONSE_CHUNK', 'RESPONSE_DONE'].includes(message.action));
+    expect(payloads.every(message => ['Partial answer', 'Complete answer'].includes(String(message.payload)))).toBe(true);
+  });
+
+  it('does not treat Claude user prose or tool status as an assistant reply', async () => {
+    vi.useFakeTimers();
+    const env = createEnv({ inputKind: 'contenteditable' });
+    mountProseMirrorComposer(env);
+    env.sendButton?.setAttribute('aria-label', 'Send message');
+    if (env.sendButton) env.sendButton.onClick = () => {
+      env.input.replaceChildren();
+      env.input.setVisibleText('');
+      const user = new FakeElement(env.document, 'div');
+      user.setAttribute('data-cds', 'UserMessage');
+      const prose = new FakeElement(env.document, 'div', 'User content');
+      prose.setAttribute('data-perf-reply-text', '');
+      user.appendChild(prose);
+      env.document.body.appendChild(user);
+      const turn = new FakeElement(env.document, 'div');
+      turn.setAttribute('data-cds', 'AssistantMessage');
+      const status = new FakeElement(env.document, 'div', 'Searched the web');
+      status.setAttribute('data-cds', 'TurnStatus');
+      turn.appendChild(status);
+      env.document.body.appendChild(turn);
+    };
+    const handler = await installEngine(env);
+    dispatchAdapter(handler, { ...claudeAdapterSeed, provider: 'claude', inputStrategy: 'prosemirror-paste', sendStrategy: 'click' });
+
+    send(handler, 'Current prompt', 'claude');
+    await flushMicrotasks();
+    await vi.advanceTimersByTimeAsync(10_000);
+
+    expect(env.sendButton?.clickCount).toBe(1);
+    expect(env.emitted.filter(message => ['RESPONSE_CHUNK', 'RESPONSE_DONE'].includes(message.action))).toEqual([]);
+  });
+
   it('confirms a ChatGPT Chat/Work send from the user-message bubble without a second click', async () => {
     vi.useFakeTimers();
     const env = createEnv({ inputKind: 'contenteditable' });
@@ -4027,6 +4099,27 @@ const CHAT_WORK_SETTLE_MS =
   CHATGPT_TERMINAL_STABLE_MS +
   CHATGPT_TERMINAL_SAMPLE_INTERVAL_MS +
   1_000;
+
+// Structural fixture only: new CDS reply body, surrounding status, and action controls.
+// Provenance: infinitr0us/chat-md-exporter, tests/fixtures/claude-2026-10-sample.html
+// at 3ee09d9d39600adf8c592637e91cdbd9ae32769d (synthetic; not a live login test).
+function appendClaudeReply(env: FakeDomEnv, layout: 'cds' | 'legacy', answer: string) {
+  const turn = new FakeElement(env.document, 'div');
+  turn.setAttribute('data-is-streaming', 'false');
+  if (layout === 'cds') turn.setAttribute('data-cds', 'AssistantMessage');
+  const status = new FakeElement(env.document, 'div', 'Searched the web');
+  status.setAttribute('data-cds', 'TurnStatus');
+  turn.appendChild(status);
+  const text = new FakeElement(env.document, 'div', answer);
+  if (layout === 'cds') text.setAttribute('data-perf-reply-text', '');
+  else text.setAttribute('class', 'font-claude-response');
+  turn.appendChild(text);
+  const actions = new FakeElement(env.document, 'div', 'Copy Retry');
+  actions.setAttribute('data-cds', 'MessageActions');
+  turn.appendChild(actions);
+  env.document.body.appendChild(turn);
+  return { turn, text };
+}
 
 function bundledChatGptAdapter(overrides: Partial<TestAdapter> = {}): Partial<TestAdapter> {
   return {
