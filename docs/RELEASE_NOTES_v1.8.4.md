@@ -26,9 +26,9 @@ Multi-AI Chat Desktop `v1.8.4` 是聚焦於 provider 相容性與 release 正確
 - A bounded navigation-start lease rolls back the exact owner/epoch if Tauri accepts a reload request but WebView2 never reports page-load start. Stale timers cannot cancel a newer document.
 - 若 Tauri 接受 reload request、但 WebView2 始終沒有回報 page-load start，有界的 navigation-start lease 會 rollback 完全相符的 owner／epoch；舊 timer 不會取消較新的 document。
 
-This addresses the actionable readiness problem reported in [#59](https://github.com/teddashh/multi-ai-chat-desktop/issues/59). Live Windows verification of popup-close-to-Ready behavior remains a release smoke requirement.
+This addresses the actionable readiness problem reported in [#59](https://github.com/TED-H-com/multi-ai-chat-desktop/issues/59). Live Windows verification of popup-close-to-Ready behavior remains a release smoke requirement.
 
-這處理了 [#59](https://github.com/teddashh/multi-ai-chat-desktop/issues/59) 回報的 readiness 問題；popup 關閉後能否在 Windows 實機轉為 Ready，仍是 release smoke 的必要項目。
+這處理了 [#59](https://github.com/TED-H-com/multi-ai-chat-desktop/issues/59) 回報的 readiness 問題；popup 關閉後能否在 Windows 實機轉為 Ready，仍是 release smoke 的必要項目。
 
 ## Accurate guidance and packaging / 正確指引與封裝
 
@@ -39,8 +39,8 @@ This addresses the actionable readiness problem reported in [#59](https://github
 
 ## Contributors / 貢獻者
 
-- Thanks to [@DaveTseng2019](https://github.com/DaveTseng2019) for [#60](https://github.com/teddashh/multi-ai-chat-desktop/pull/60), [#61](https://github.com/teddashh/multi-ai-chat-desktop/pull/61), and the live findings in [#59](https://github.com/teddashh/multi-ai-chat-desktop/issues/59). The release branch preserves the contributed commits and adds maintainer hardening for provider-specific guidance, final-DOM authority, fail-closed completion, and native lifecycle races.
-- 感謝 [@DaveTseng2019](https://github.com/DaveTseng2019) 提交 [#60](https://github.com/teddashh/multi-ai-chat-desktop/pull/60)、[#61](https://github.com/teddashh/multi-ai-chat-desktop/pull/61)，以及在 [#59](https://github.com/teddashh/multi-ai-chat-desktop/issues/59) 提供實機結果。Release branch 保留原始貢獻 commits，並加入 provider 專屬指引、final-DOM authority、fail-closed completion 與原生 lifecycle race 的 maintainer hardening。
+- Thanks to [@DaveTseng2019](https://github.com/DaveTseng2019) for [#60](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/60), [#61](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/61), and the live findings in [#59](https://github.com/TED-H-com/multi-ai-chat-desktop/issues/59). The release branch preserves the contributed commits and adds maintainer hardening for provider-specific guidance, final-DOM authority, fail-closed completion, and native lifecycle races.
+- 感謝 [@DaveTseng2019](https://github.com/DaveTseng2019) 提交 [#60](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/60)、[#61](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/61)，以及在 [#59](https://github.com/TED-H-com/multi-ai-chat-desktop/issues/59) 提供實機結果。Release branch 保留原始貢獻 commits，並加入 provider 專屬指引、final-DOM authority、fail-closed completion 與原生 lifecycle race 的 maintainer hardening。
 
 ## Validation / 驗證
 
@@ -72,4 +72,4 @@ This addresses the actionable readiness problem reported in [#59](https://github
 - The GitHub Release remains a draft until these manual gates are satisfied or the maintainer explicitly accepts the remaining risk.
 - 在完成這些人工 gate、或 maintainer 明確接受剩餘風險前，GitHub Release 會保持 Draft。
 
-**Full changelog:** https://github.com/teddashh/multi-ai-chat-desktop/compare/v1.8.3...v1.8.4
+**Full changelog:** https://github.com/TED-H-com/multi-ai-chat-desktop/compare/v1.8.3...v1.8.4

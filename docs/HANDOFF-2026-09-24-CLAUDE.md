@@ -7,8 +7,8 @@
 
 - 分支：`main` @ `dd22b21`（`docs: point Latest downloads at v1.9.5 (#111)`）。工作目錄乾淨。
 - 正式版：**v1.9.5 Latest**（2026-09-22 12:45 UTC 發布，四個產物）
-  https://github.com/teddashh/multi-ai-chat-desktop/releases/tag/v1.9.5
-- 官網已部署並確認渲染為 v1.9.5：https://teddashh.github.io/multi-ai-chat-desktop/
+  https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.5
+- 官網已部署並確認渲染為 v1.9.5：https://ted-h-com.github.io/multi-ai-chat-desktop/
 - GitHub 上沒有 open issue、沒有 open PR。
 - 本機分支只剩 `main`（其餘已合併的分支這次清掉了）。
 - **`origin/docs/compat-2026-09-22` 這個遠端分支還在**，內容已被 `main` 取代（`#110` 的 v1.9.5 版措辭較新且較長），可以安全刪除；我沒有動遠端分支。

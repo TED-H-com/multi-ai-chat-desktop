@@ -4,7 +4,7 @@
 
 Eine Frage genügt: Vier angemeldete KI-Websitzungen antworten, prüfen, widersprechen und verfeinern das Ergebnis gemeinsam. **ChatGPT, Claude, Gemini und Grok bleiben die Standardauswahl; Meta AI ist eine experimentelle fünfte Standby-Option in den Einstellungen.** Multi-AI Chat Desktop ist ein Workflow-Hub auf Basis von Tauri 2, nicht bloß vier nebeneinander angeordnete Chats.
 
-[**Offizielle Website öffnen →**](https://teddashh.github.io/multi-ai-chat-desktop/?lang=de) · [v1.9.6 herunterladen](https://github.com/teddashh/multi-ai-chat-desktop/releases/tag/v1.9.6) · [Alle Releases](https://github.com/teddashh/multi-ai-chat-desktop/releases) · MIT · keine API-Schlüssel · keine Analyse
+[**Offizielle Website öffnen →**](https://ted-h-com.github.io/multi-ai-chat-desktop/?lang=de) · [v1.9.6 herunterladen](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.6) · [Alle Releases](https://github.com/TED-H-com/multi-ai-chat-desktop/releases) · MIT · keine API-Schlüssel · keine Analyse
 
 > Diese App automatisiert die Anbieter-Webseiten, die du bereits verwendest. Änderungen an deren Oberfläche können einen Adapter vorübergehend beeinträchtigen; außerdem können die Bedingungen des jeweiligen Dienstes gelten. Verwende nur Konten und Inhalte, zu deren Nutzung du berechtigt bist. Anmeldung, Abonnement, Alter, Nutzungslimits und Sicherheitsprüfungen werden weder umgangen noch automatisiert gelöst.
 
@@ -12,7 +12,7 @@ Eine Frage genügt: Vier angemeldete KI-Websitzungen antworten, prüfen, widersp
 
 ## Zuerst installieren
 
-Die aktuelle stabile Version steht auf der [**Downloadseite für v1.9.6**](https://github.com/teddashh/multi-ai-chat-desktop/releases/tag/v1.9.6) bereit.
+Die aktuelle stabile Version steht auf der [**Downloadseite für v1.9.6**](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.6) bereit.
 
 | Plattform | Download | Hinweis zum ersten Start |
 |---|---|---|
@@ -32,7 +32,7 @@ Beim experimentellen Meta-AI-Pfad die Gast-, E-Mail-/Mobil- oder Facebook/Instag
 
 Die Ad-hoc-Signatur schützt die Bundle-Integrität und verhindert die falsche Meldung „App ist beschädigt“, die bei `v1.0.0` auftreten konnte. Nur Developer-ID-Signatur plus Notarisierung könnte diese Ausnahme ganz entfernen. Auf verwalteten Macs kann eine Freigabe durch Nutzer gesperrt sein.
 
-Portable Windows-Builds zeigen keine Update-Steuerung in der App. Aktualisiere sie manuell über [GitHub Releases](https://github.com/teddashh/multi-ai-chat-desktop/releases/latest). Installierte Builds können nach einer neuen Version suchen und deren Downloadseite öffnen; die App lädt oder installiert Updates jedoch nicht selbst.
+Portable Windows-Builds zeigen keine Update-Steuerung in der App. Aktualisiere sie manuell über [GitHub Releases](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/latest). Installierte Builds können nach einer neuen Version suchen und deren Downloadseite öffnen; die App lädt oder installiert Updates jedoch nicht selbst.
 
 ## Neu in v1.9.6
 
@@ -49,11 +49,11 @@ Portable Windows-Builds zeigen keine Update-Steuerung in der App. Aktualisiere s
 - **Optionaler Meta-AI-Standby.** Fünf Auswahlmöglichkeiten, immer genau vier aktiv. Die ursprünglichen vier bleiben Standard; in den Einstellungen kann genau ein Anbieter getauscht werden. Profile bleiben erhalten, Rollen und Ziele werden auf die aktuelle Auswahl repariert.
 - **Porträt und Diagnose.** Meta AI hat ein eigenes Porträt. Ereignisprotokoll und Debug-Bundle kennzeichnen es als Meta AI, ohne Prompts oder Antworten zu speichern.
 
-Die [Release Notes](https://github.com/teddashh/multi-ai-chat-desktop/releases/tag/v1.9.6) beschreiben Änderungen und Grenzen.
+Die [Release Notes](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.6) beschreiben Änderungen und Grenzen.
 
 ## Desktop oder Browser-Erweiterung?
 
-| | **Desktop (dieses Repository)** | [**Browser-Erweiterung**](https://teddashh.github.io/multi-ai-chat/?lang=de) |
+| | **Desktop (dieses Repository)** | [**Browser-Erweiterung**](https://ted-h-com.github.io/multi-ai-chat/?lang=de) |
 |---|---|---|
 | Am besten für | Vollständige geführte Workflows, fokussierte Live-Anbieteransicht, lokale Sitzungen, Snapshot/Replay und lokale Textdateien | Leichte Nutzung in Chrome mit vorhandenen Anbieter-Tabs |
 | Laufzeit | Tauri-App mit einem getrennten lokalen Profil pro Anbieter | Chrome Side Panel plus normale Browser-Tabs |
@@ -161,10 +161,10 @@ Multi-AI Chat Desktop ist MIT-lizenzierte Software von **Ted Huang / TED-H** ([T
 
 Dank an die Mitwirkenden:
 
-- [Rumi-3653](https://github.com/Rumi-3653) steuerte in [#78](https://github.com/teddashh/multi-ai-chat-desktop/pull/78) die Reparatur des ChatGPT-v7-Logged-out-Detektors bei.
-- [George Ku (`@ufgeorge`)](https://github.com/ufgeorge) meldete in [#80](https://github.com/teddashh/multi-ai-chat-desktop/issues/80) den durch Anbieterlimits verursachten Brainstorm-Abbruch und führte damit zum Wiederherstellungsablauf in v1.8.6.
-- [Dave Tseng (`@DaveTseng2019`)](https://github.com/DaveTseng2019) steuerte die Overlay-Zuverlässigkeitskorrektur in `v1.3.1`, detaillierte Reproduktionen und Vorschläge in [#10](https://github.com/teddashh/multi-ai-chat-desktop/pull/10), [#11](https://github.com/teddashh/multi-ai-chat-desktop/pull/11) und [#12](https://github.com/teddashh/multi-ai-chat-desktop/pull/12), Serializer-Regressionstests in [#14](https://github.com/teddashh/multi-ai-chat-desktop/pull/14), Grok-Challenge-/Fokusarbeit in [#39](https://github.com/teddashh/multi-ai-chat-desktop/pull/39) und [#40](https://github.com/teddashh/multi-ai-chat-desktop/pull/40) sowie das Vollbreiten-Transkript mit scrollgekoppeltem Anbieterfokus in [#51](https://github.com/teddashh/multi-ai-chat-desktop/pull/51) bei.
-- [CE Lin (`@ChingEnLin`)](https://github.com/ChingEnLin) lieferte den Anbieterstatus-Bericht in [#41](https://github.com/teddashh/multi-ai-chat-desktop/issues/41) und ChatGPT-, Gemini- und Grok-Adapterkorrekturen in [#42](https://github.com/teddashh/multi-ai-chat-desktop/pull/42).
+- [Rumi-3653](https://github.com/Rumi-3653) steuerte in [#78](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/78) die Reparatur des ChatGPT-v7-Logged-out-Detektors bei.
+- [George Ku (`@ufgeorge`)](https://github.com/ufgeorge) meldete in [#80](https://github.com/TED-H-com/multi-ai-chat-desktop/issues/80) den durch Anbieterlimits verursachten Brainstorm-Abbruch und führte damit zum Wiederherstellungsablauf in v1.8.6.
+- [Dave Tseng (`@DaveTseng2019`)](https://github.com/DaveTseng2019) steuerte die Overlay-Zuverlässigkeitskorrektur in `v1.3.1`, detaillierte Reproduktionen und Vorschläge in [#10](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/10), [#11](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/11) und [#12](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/12), Serializer-Regressionstests in [#14](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/14), Grok-Challenge-/Fokusarbeit in [#39](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/39) und [#40](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/40) sowie das Vollbreiten-Transkript mit scrollgekoppeltem Anbieterfokus in [#51](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/51) bei.
+- [CE Lin (`@ChingEnLin`)](https://github.com/ChingEnLin) lieferte den Anbieterstatus-Bericht in [#41](https://github.com/TED-H-com/multi-ai-chat-desktop/issues/41) und ChatGPT-, Gemini- und Grok-Adapterkorrekturen in [#42](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/42).
 - Windows- und macOS-Nutzer stellten reproduzierbare Berichte und bereinigte Debug-Logs bereit, die Erststart-Paketierung, Provider-Automatisierung, Sitzungsfortsetzung und Release-Prüfung verbessert haben.
 
-Issues und Pull Requests innerhalb des eingefrorenen Wartungsumfangs sind willkommen. Für reproduzierbare Nicht-Sicherheitsfehler und Wartungsfragen nutze [GitHub Issues](https://github.com/teddashh/multi-ai-chat-desktop/issues).
+Issues und Pull Requests innerhalb des eingefrorenen Wartungsumfangs sind willkommen. Für reproduzierbare Nicht-Sicherheitsfehler und Wartungsfragen nutze [GitHub Issues](https://github.com/TED-H-com/multi-ai-chat-desktop/issues).

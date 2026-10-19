@@ -12,13 +12,13 @@ Windows `v1.9.2` debug bundle 顯示 Facebook／Instagram 登入已回到窗格�
 
 ## Verification / 驗證
 
-- CI on [#102](https://github.com/teddashh/multi-ai-chat-desktop/pull/102): adapters, frontend (731 tests), three-platform Clippy, and CodeQL passed.
-- [#102](https://github.com/teddashh/multi-ai-chat-desktop/pull/102) CI：adapters、frontend（731 項）、三平台 Clippy、CodeQL 通過。
+- CI on [#102](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/102): adapters, frontend (731 tests), three-platform Clippy, and CodeQL passed.
+- [#102](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/102) CI：adapters、frontend（731 項）、三平台 Clippy、CodeQL 通過。
 - Release tag `v1.9.3` artifacts were SHA-256 checked, and the portable zip CRC-tested clean with a `PORTABLE` marker.
 - `v1.9.3` 產物已核對 SHA-256，portable zip CRC 通過且含 `PORTABLE` 標記。
 - **Authenticated Meta send/receive was not re-run.**
 - **沒有重做已登入的 Meta 送收。**
 
-Published: https://github.com/teddashh/multi-ai-chat-desktop/releases/tag/v1.9.3
+Published: https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.3
 
-**Full changelog:** https://github.com/teddashh/multi-ai-chat-desktop/compare/v1.9.2...v1.9.3
+**Full changelog:** https://github.com/TED-H-com/multi-ai-chat-desktop/compare/v1.9.2...v1.9.3

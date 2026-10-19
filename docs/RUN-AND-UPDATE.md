@@ -32,7 +32,7 @@ node scripts/agent/stop.mjs --json       # 停止
 
 ### 方法三：安裝正式版本（非開發用）
 
-到 [Releases](https://github.com/teddashh/multi-ai-chat-desktop/releases/latest) 下載對應平台的安裝檔（Windows `.zip`/`x64-setup.exe`、macOS `.dmg`、Linux `.AppImage`）。
+到 [Releases](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/latest) 下載對應平台的安裝檔（Windows `.zip`/`x64-setup.exe`、macOS `.dmg`、Linux `.AppImage`）。
 
 ## 更新方法
 

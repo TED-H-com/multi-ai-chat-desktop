@@ -4,7 +4,7 @@
 
 Ask once. Let four signed-in AI web sessions answer, review, challenge, and refine one another. **ChatGPT, Claude, Gemini, and Grok remain the default lineup; Meta AI is an experimental fifth standby option in Settings.** Multi-AI Chat Desktop is a Tauri 2 workflow hub, not four chat windows placed side by side.
 
-[**Visit the official website →**](https://teddashh.github.io/multi-ai-chat-desktop/) · [Download v1.9.6](https://github.com/teddashh/multi-ai-chat-desktop/releases/tag/v1.9.6) · [All releases](https://github.com/teddashh/multi-ai-chat-desktop/releases) · MIT · no API keys · no analytics
+[**Visit the official website →**](https://ted-h-com.github.io/multi-ai-chat-desktop/) · [Download v1.9.6](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.6) · [All releases](https://github.com/TED-H-com/multi-ai-chat-desktop/releases) · MIT · no API keys · no analytics
 
 > This app automates provider web pages you already use. Provider UI changes can temporarily break an adapter, and automated use may be subject to each provider's terms. Use only accounts and content you are authorized to use. The app never bypasses login, subscription, age, rate-limit, or security checks.
 
@@ -12,7 +12,7 @@ Ask once. Let four signed-in AI web sessions answer, review, challenge, and refi
 
 ## Install first
 
-Get the current stable release from the [**v1.9.6 download page**](https://github.com/teddashh/multi-ai-chat-desktop/releases/tag/v1.9.6).
+Get the current stable release from the [**v1.9.6 download page**](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.6).
 
 | Platform | Download | First-launch note |
 |---|---|---|
@@ -32,7 +32,7 @@ In the experimental Meta AI path, complete guest, email/mobile, or Facebook/Inst
 
 The ad-hoc signature protects bundle integrity and avoids the false “app is damaged” result seen in `v1.0.0`; only Developer ID signing plus notarization could remove this exception. Managed Macs may prohibit it.
 
-Portable Windows builds do not show in-app update controls. Update them manually from [GitHub Releases](https://github.com/teddashh/multi-ai-chat-desktop/releases/latest). Installed builds can check for a newer release and open its download page, but the app does not download or install updates itself.
+Portable Windows builds do not show in-app update controls. Update them manually from [GitHub Releases](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/latest). Installed builds can check for a newer release and open its download page, but the app does not download or install updates itself.
 
 ## What's new in v1.9.6
 
@@ -49,11 +49,11 @@ Portable Windows builds do not show in-app update controls. Update them manually
 - **Optional Meta AI standby.** Five choices, exactly four active. The original four stay default; Settings can swap one provider. Profiles stay, and roles and targets repair.
 - **Portrait and diagnostics.** Meta AI has its own portrait. Event log and debug bundle label it Meta AI without storing prompts or replies.
 
-Read the [release notes](https://github.com/teddashh/multi-ai-chat-desktop/releases/tag/v1.9.6).
+Read the [release notes](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.6).
 
 ## Desktop or browser extension?
 
-| | **Desktop (this repository)** | [**Browser extension**](https://teddashh.github.io/multi-ai-chat/) |
+| | **Desktop (this repository)** | [**Browser extension**](https://ted-h-com.github.io/multi-ai-chat/) |
 |---|---|---|
 | Best for | Complete guided workflows, focused live-provider view, local sessions, snapshots/replay, and local text files | Lightweight use inside Chrome with existing provider tabs |
 | Runtime | Tauri app with one isolated local profile per provider | Chrome Side Panel plus normal browser tabs |
@@ -161,10 +161,10 @@ Multi-AI Chat Desktop is MIT-licensed software created by **Ted Huang / TED-H** 
 
 Contributor thanks:
 
-- [Rumi-3653](https://github.com/Rumi-3653) contributed the ChatGPT v7 logged-out detector repair in [#78](https://github.com/teddashh/multi-ai-chat-desktop/pull/78).
-- [George Ku (`@ufgeorge`)](https://github.com/ufgeorge) reported the provider-limit Brainstorm interruption in [#80](https://github.com/teddashh/multi-ai-chat-desktop/issues/80), leading to the v1.8.6 recovery flow.
-- [Dave Tseng (`@DaveTseng2019`)](https://github.com/DaveTseng2019) contributed the `v1.3.1` overlay reliability fix; detailed reproductions and proposals in [#10](https://github.com/teddashh/multi-ai-chat-desktop/pull/10), [#11](https://github.com/teddashh/multi-ai-chat-desktop/pull/11), and [#12](https://github.com/teddashh/multi-ai-chat-desktop/pull/12); serializer regression tests in [#14](https://github.com/teddashh/multi-ai-chat-desktop/pull/14); Grok challenge and expanded-focus work in [#39](https://github.com/teddashh/multi-ai-chat-desktop/pull/39) and [#40](https://github.com/teddashh/multi-ai-chat-desktop/pull/40); and the full-width transcript with scroll-linked provider focus in [#51](https://github.com/teddashh/multi-ai-chat-desktop/pull/51).
-- [CE Lin (`@ChingEnLin`)](https://github.com/ChingEnLin) provided the provider-status report in [#41](https://github.com/teddashh/multi-ai-chat-desktop/issues/41) and contributed ChatGPT, Gemini, and Grok adapter repairs in [#42](https://github.com/teddashh/multi-ai-chat-desktop/pull/42).
+- [Rumi-3653](https://github.com/Rumi-3653) contributed the ChatGPT v7 logged-out detector repair in [#78](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/78).
+- [George Ku (`@ufgeorge`)](https://github.com/ufgeorge) reported the provider-limit Brainstorm interruption in [#80](https://github.com/TED-H-com/multi-ai-chat-desktop/issues/80), leading to the v1.8.6 recovery flow.
+- [Dave Tseng (`@DaveTseng2019`)](https://github.com/DaveTseng2019) contributed the `v1.3.1` overlay reliability fix; detailed reproductions and proposals in [#10](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/10), [#11](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/11), and [#12](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/12); serializer regression tests in [#14](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/14); Grok challenge and expanded-focus work in [#39](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/39) and [#40](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/40); and the full-width transcript with scroll-linked provider focus in [#51](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/51).
+- [CE Lin (`@ChingEnLin`)](https://github.com/ChingEnLin) provided the provider-status report in [#41](https://github.com/TED-H-com/multi-ai-chat-desktop/issues/41) and contributed ChatGPT, Gemini, and Grok adapter repairs in [#42](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/42).
 - Windows and macOS users shared reproducible reports and sanitized debug logs that improved first-launch packaging, provider automation, session continuity, and release verification.
 
-Issues and pull requests are welcome within the frozen maintenance scope. Please use [GitHub Issues](https://github.com/teddashh/multi-ai-chat-desktop/issues) for reproducible non-security bugs and maintenance questions.
+Issues and pull requests are welcome within the frozen maintenance scope. Please use [GitHub Issues](https://github.com/TED-H-com/multi-ai-chat-desktop/issues) for reproducible non-security bugs and maintenance questions.

@@ -559,8 +559,8 @@
   const valueFor = (locale, key, fallback) => translations[locale]?.[key] ?? fallback;
 
   const updateBrowserLinks = (locale) => {
-    document.querySelectorAll('a[href^="https://teddashh.github.io/multi-ai-chat/"]').forEach((link) => {
-      const url = new URL("https://teddashh.github.io/multi-ai-chat/");
+    document.querySelectorAll('a[href^="https://ted-h-com.github.io/multi-ai-chat/"]').forEach((link) => {
+      const url = new URL("https://ted-h-com.github.io/multi-ai-chat/");
       if (locale !== "en") url.searchParams.set("lang", locale);
       link.href = url.toString();
     });

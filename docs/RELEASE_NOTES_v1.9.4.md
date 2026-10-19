@@ -16,8 +16,8 @@ A Windows zh-TW `v1.9.3` Roundtable run showed the failure: Meta finished two sp
 
 ## Verification / 驗證
 
-- CI on [#105](https://github.com/teddashh/multi-ai-chat-desktop/pull/105): frontend (734 tests), three-platform Clippy, and CodeQL passed; the adapters job was skipped because no adapter changed.
-- [#105](https://github.com/teddashh/multi-ai-chat-desktop/pull/105) CI：frontend（734 項）、三平台 Clippy、CodeQL 通過；本次沒有動 adapter，adapters job 略過。
+- CI on [#105](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/105): frontend (734 tests), three-platform Clippy, and CodeQL passed; the adapters job was skipped because no adapter changed.
+- [#105](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/105) CI：frontend（734 項）、三平台 Clippy、CodeQL 通過；本次沒有動 adapter，adapters job 略過。
 - Three new regressions cover a reply read after the latched anchor detaches, a completion when no anchor ever resolves, and a negative case that a pre-send assistant message is never emitted through the fallback.
 - 新增三項回歸測試：錨點脫離後仍讀到回覆、完全沒有錨點時仍能完成、以及送出前就存在的 assistant 訊息不會經由 fallback 送出。
 - Meta AI authenticated send, receive, and completion were confirmed live on Windows zh-TW with `v1.9.3` (two Roundtable speeches, 909 and 1,333 characters). Meta stop, new-session reset, and profile persistence remain unverified.
@@ -29,6 +29,6 @@ A Windows zh-TW `v1.9.3` Roundtable run showed the failure: Meta finished two sp
 - Release tag `v1.9.4` artifacts were SHA-256 checked, the portable zip CRC-tested clean with a `PORTABLE` marker, and all four artifacts were unpacked to confirm the shipped binaries contain the fix.
 - `v1.9.4` 產物已核對 SHA-256，portable zip CRC 通過且含 `PORTABLE` 標記，四個產物也都解開確認二進位內含此修復。
 
-Published: https://github.com/teddashh/multi-ai-chat-desktop/releases/tag/v1.9.4
+Published: https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.4
 
-**Full changelog:** https://github.com/teddashh/multi-ai-chat-desktop/compare/v1.9.3...v1.9.4
+**Full changelog:** https://github.com/TED-H-com/multi-ai-chat-desktop/compare/v1.9.3...v1.9.4

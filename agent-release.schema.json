@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/teddashh/multi-ai-chat-desktop/blob/main/agent-release.schema.json",
+  "$id": "https://github.com/TED-H-com/multi-ai-chat-desktop/blob/main/agent-release.schema.json",
   "title": "Agent-Ready Source Release Manifest",
   "type": "object",
   "additionalProperties": false,

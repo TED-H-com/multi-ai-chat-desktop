@@ -37,9 +37,9 @@ Multi-AI Chat Desktop `v1.6.2` 完成原定的 12 輪腦力激盪設計、讓 pr
 
 ## Contributor thanks / 貢獻者致謝
 
-Thanks to Dave Tseng ([`@DaveTseng2019`](https://github.com/DaveTseng2019)) for identifying the fixed-timeout root cause and proposing the core keepalive implementation in [PR #34](https://github.com/teddashh/multi-ai-chat-desktop/pull/34). Commit `1d7ebb3` preserves his co-authorship; the release integration extends the fix to every response activity signal, adds the absolute safety cap, and supplies regression coverage.
+Thanks to Dave Tseng ([`@DaveTseng2019`](https://github.com/DaveTseng2019)) for identifying the fixed-timeout root cause and proposing the core keepalive implementation in [PR #34](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/34). Commit `1d7ebb3` preserves his co-authorship; the release integration extends the fix to every response activity signal, adds the absolute safety cap, and supplies regression coverage.
 
-感謝 Dave Tseng（[`@DaveTseng2019`](https://github.com/DaveTseng2019)）在 [PR #34](https://github.com/teddashh/multi-ai-chat-desktop/pull/34) 找出固定逾時的 root cause，並提出 keepalive 核心實作。Commit `1d7ebb3` 保留其共同作者資訊；release 整合再補齊所有回覆活動訊號、absolute safety cap 與 regression coverage。
+感謝 Dave Tseng（[`@DaveTseng2019`](https://github.com/DaveTseng2019)）在 [PR #34](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/34) 找出固定逾時的 root cause，並提出 keepalive 核心實作。Commit `1d7ebb3` 保留其共同作者資訊；release 整合再補齊所有回覆活動訊號、absolute safety cap 與 regression coverage。
 
 ## Validation / 驗證
 
@@ -76,4 +76,4 @@ Thanks to Dave Tseng ([`@DaveTseng2019`](https://github.com/DaveTseng2019)) for 
 - Provider websites can change independently. Attach a sanitized exported debug log when reporting automation failures.
 - Provider 網頁可能獨立改版；回報自動化失敗時，請附上已去識別化的匯出 debug log。
 
-**Full changelog:** https://github.com/teddashh/multi-ai-chat-desktop/compare/v1.6.1...v1.6.2
+**Full changelog:** https://github.com/TED-H-com/multi-ai-chat-desktop/compare/v1.6.1...v1.6.2

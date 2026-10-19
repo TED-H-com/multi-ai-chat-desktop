@@ -23,9 +23,9 @@ Multi-AI Chat Desktop `v1.5.0` 強化 ChatGPT 送出與 provider 回答擷取，
 
 ## Contributors / 貢獻者
 
-Special thanks to [Dave Tseng (`@DaveTseng2019`)](https://github.com/DaveTseng2019) for the connection-chip transcript navigation in [#20](https://github.com/teddashh/multi-ai-chat-desktop/pull/20), persisted sidebar preference in [#21](https://github.com/teddashh/multi-ai-chat-desktop/pull/21), stable history dates in [#22](https://github.com/teddashh/multi-ai-chat-desktop/pull/22), and the thoughtful session-continuity discussion in [#23](https://github.com/teddashh/multi-ai-chat-desktop/pull/23).
+Special thanks to [Dave Tseng (`@DaveTseng2019`)](https://github.com/DaveTseng2019) for the connection-chip transcript navigation in [#20](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/20), persisted sidebar preference in [#21](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/21), stable history dates in [#22](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/22), and the thoughtful session-continuity discussion in [#23](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/23).
 
-特別感謝 [Dave Tseng（`@DaveTseng2019`）](https://github.com/DaveTseng2019)：他在 [#20](https://github.com/teddashh/multi-ai-chat-desktop/pull/20) 貢獻連線 chip 的逐字稿導覽、在 [#21](https://github.com/teddashh/multi-ai-chat-desktop/pull/21) 保存側邊欄偏好、在 [#22](https://github.com/teddashh/multi-ai-chat-desktop/pull/22) 穩定歷史日期，也在 [#23](https://github.com/teddashh/multi-ai-chat-desktop/pull/23) 提出值得深入檢視的 session 延續方案。
+特別感謝 [Dave Tseng（`@DaveTseng2019`）](https://github.com/DaveTseng2019)：他在 [#20](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/20) 貢獻連線 chip 的逐字稿導覽、在 [#21](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/21) 保存側邊欄偏好、在 [#22](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/22) 穩定歷史日期，也在 [#23](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/23) 提出值得深入檢視的 session 延續方案。
 
 Thank you as well to the users who supplied sanitized roundtable transcripts, debug bundles, and precise ChatGPT prompt-loss reproductions.
 
@@ -52,4 +52,4 @@ Thank you as well to the users who supplied sanitized roundtable transcripts, de
 - The macOS package is ad-hoc signed rather than Apple-notarized; follow the README first-launch steps if macOS blocks it.
 - Provider websites can change independently. Attach a sanitized exported debug log when reporting automation failures.
 
-**Full changelog:** https://github.com/teddashh/multi-ai-chat-desktop/compare/v1.4.0...v1.5.0
+**Full changelog:** https://github.com/TED-H-com/multi-ai-chat-desktop/compare/v1.4.0...v1.5.0

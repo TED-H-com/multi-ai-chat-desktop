@@ -23,9 +23,9 @@ Multi-AI Chat Desktop `v1.4.0` 讓恢復後的對話能真正延續、保留更�
 
 ## Contributors / 貢獻者
 
-Special thanks to [Dave Tseng (`@DaveTseng2019`)](https://github.com/DaveTseng2019) for the `v1.3.1` overlay reliability fix; the detailed reproductions and original proposals in [#10](https://github.com/teddashh/multi-ai-chat-desktop/pull/10), [#11](https://github.com/teddashh/multi-ai-chat-desktop/pull/11), and [#12](https://github.com/teddashh/multi-ai-chat-desktop/pull/12); and the serializer regression tests merged in [#14](https://github.com/teddashh/multi-ai-chat-desktop/pull/14).
+Special thanks to [Dave Tseng (`@DaveTseng2019`)](https://github.com/DaveTseng2019) for the `v1.3.1` overlay reliability fix; the detailed reproductions and original proposals in [#10](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/10), [#11](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/11), and [#12](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/12); and the serializer regression tests merged in [#14](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/14).
 
-特別感謝 [Dave Tseng（`@DaveTseng2019`）](https://github.com/DaveTseng2019)：他貢獻了 `v1.3.1` overlay 可靠性修正、在 [#10](https://github.com/teddashh/multi-ai-chat-desktop/pull/10)、[#11](https://github.com/teddashh/multi-ai-chat-desktop/pull/11)、[#12](https://github.com/teddashh/multi-ai-chat-desktop/pull/12) 提供詳細重現與原始方案，並在 [#14](https://github.com/teddashh/multi-ai-chat-desktop/pull/14) 補上已合併的 serializer regression tests。
+特別感謝 [Dave Tseng（`@DaveTseng2019`）](https://github.com/DaveTseng2019)：他貢獻了 `v1.3.1` overlay 可靠性修正、在 [#10](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/10)、[#11](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/11)、[#12](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/12) 提供詳細重現與原始方案，並在 [#14](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/14) 補上已合併的 serializer regression tests。
 
 Thank you as well to community testers who shared reproducible Windows and macOS reports and sanitized debug logs.
 
@@ -53,4 +53,4 @@ Thank you as well to community testers who shared reproducible Windows and macOS
 - The macOS package is ad-hoc signed rather than Apple-notarized; follow the README first-launch steps if macOS blocks it.
 - Provider websites can change independently. Attach a sanitized exported debug log when reporting automation failures.
 
-**Full changelog:** https://github.com/teddashh/multi-ai-chat-desktop/compare/v1.3.1...v1.4.0
+**Full changelog:** https://github.com/TED-H-com/multi-ai-chat-desktop/compare/v1.3.1...v1.4.0

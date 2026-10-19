@@ -33,9 +33,9 @@ Multi-AI Chat Desktop `v1.6.1` 修正三項對話與 workflow 邊界狀況，並
 
 ## Contributor thanks / 貢獻者致謝
 
-Thanks to Dave Tseng ([`@DaveTseng2019`](https://github.com/DaveTseng2019)) for the diagnosis and original implementations in [PR #23](https://github.com/teddashh/multi-ai-chat-desktop/pull/23), [PR #31](https://github.com/teddashh/multi-ai-chat-desktop/pull/31), and [PR #32](https://github.com/teddashh/multi-ai-chat-desktop/pull/32). His commits are preserved with original authorship; the release integration adds the new-boot gate, failure-safe send path, participant-only reset, full blank-session reset, graph version bump, localization, and regression coverage.
+Thanks to Dave Tseng ([`@DaveTseng2019`](https://github.com/DaveTseng2019)) for the diagnosis and original implementations in [PR #23](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/23), [PR #31](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/31), and [PR #32](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/32). His commits are preserved with original authorship; the release integration adds the new-boot gate, failure-safe send path, participant-only reset, full blank-session reset, graph version bump, localization, and regression coverage.
 
-感謝 Dave Tseng（[`@DaveTseng2019`](https://github.com/DaveTseng2019)）在 [PR #23](https://github.com/teddashh/multi-ai-chat-desktop/pull/23)、[PR #31](https://github.com/teddashh/multi-ai-chat-desktop/pull/31) 與 [PR #32](https://github.com/teddashh/multi-ai-chat-desktop/pull/32) 提供診斷及原始實作。這些 commit 均保留原作者資訊；release 整合另外補上 new-boot gate、失敗安全的送出路徑、participant-only reset、完整空白 session 重設、graph version bump、語系與 regression coverage。
+感謝 Dave Tseng（[`@DaveTseng2019`](https://github.com/DaveTseng2019)）在 [PR #23](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/23)、[PR #31](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/31) 與 [PR #32](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/32) 提供診斷及原始實作。這些 commit 均保留原作者資訊；release 整合另外補上 new-boot gate、失敗安全的送出路徑、participant-only reset、完整空白 session 重設、graph version bump、語系與 regression coverage。
 
 ## Validation / 驗證
 
@@ -72,4 +72,4 @@ Thanks to Dave Tseng ([`@DaveTseng2019`](https://github.com/DaveTseng2019)) for 
 - Provider websites can change independently. Attach a sanitized exported debug log when reporting automation failures.
 - Provider 網頁可能獨立改版；回報自動化失敗時，請附上已去識別化的匯出 debug log。
 
-**Full changelog:** https://github.com/teddashh/multi-ai-chat-desktop/compare/v1.6.0...v1.6.1
+**Full changelog:** https://github.com/TED-H-com/multi-ai-chat-desktop/compare/v1.6.0...v1.6.1

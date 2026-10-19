@@ -41,7 +41,7 @@ This amendment may ship before live guest-access behavior is exhaustively charac
 - Manual: activate Meta AI, confirm current guest or login-gated state is reported honestly, send/receive when the composer is usable, force one provider error and confirm it is filterable/exportable as Meta AI, restart, and confirm the selected standby plus all profile sessions persist.
 - Release notes call Meta AI experimental and state both invariants: the original four remain default and exactly four providers are active at a time.
 
-**Overnight no-login QC, 2026-09-20 ([PR #96](https://github.com/teddashh/multi-ai-chat-desktop/pull/96)):** default Meta standby, exactly four active providers, standby swap/restore, and the login-guidance tip passed. Meta-only event filtering and sanitized log copy passed; provider status cards remain unfiltered. Meta remains experimental: authenticated login and end-to-end send/receive, completion, stop, new-session, and workflow/debate smoke remain pending. These passes do not establish authenticated Meta compatibility.
+**Overnight no-login QC, 2026-09-20 ([PR #96](https://github.com/TED-H-com/multi-ai-chat-desktop/pull/96)):** default Meta standby, exactly four active providers, standby swap/restore, and the login-guidance tip passed. Meta-only event filtering and sanitized log copy passed; provider status cards remain unfiltered. Meta remains experimental: authenticated login and end-to-end send/receive, completion, stop, new-session, and workflow/debate smoke remain pending. These passes do not establish authenticated Meta compatibility.
 
 ## Milestone map (risk-first ordering)
 
