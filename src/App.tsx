@@ -2247,7 +2247,7 @@ function adapterNoticeText(notice: AdapterNotice): string {
   return `${provider}: ${notice.message || notice.kind}`;
 }
 
-const ChatMessage = memo(function ChatMessage({
+export const ChatMessage = memo(function ChatMessage({
   message,
   locale,
   thinking,
