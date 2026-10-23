@@ -17,7 +17,7 @@ vi.mock('@tauri-apps/api/event', () => ({
 }));
 
 import { bubbleAuthorLabel } from '../bubbleAuthorLabel';
-import App, { ChatArea, presentationHiddenProvidersForCenterSurface } from '../App';
+import App, { ChatArea, ChatMessage, presentationHiddenProvidersForCenterSurface } from '../App';
 import { I18nProvider } from '../i18n/context';
 import { applyCenterHiddenCommands } from '../ui/presentationCommands';
 import { defaultPresentation, setProviderPresentation } from '../ui/presentation';
@@ -164,5 +164,18 @@ describe('text center presentation hidden set', () => {
 
     expect(host.show).not.toHaveBeenCalled();
     expect(host.hide).toHaveBeenCalledWith('claude');
+  });
+});
+
+
+
+
+
+
+describe('ChatArea and ChatMessage memoization', () => {
+  it('are wrapped in React.memo', () => {
+    // Assert memoization wrapper exists
+    expect(ChatArea['$$typeof']).toBe(Symbol.for('react.memo'));
+    expect(ChatMessage['$$typeof']).toBe(Symbol.for('react.memo'));
   });
 });
