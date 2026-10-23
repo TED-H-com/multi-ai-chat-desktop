@@ -1,4 +1,4 @@
-export const DEFAULT_RELEASE_REPO = 'teddashh/multi-ai-chat-desktop';
+export const DEFAULT_RELEASE_REPO = 'TED-H-com/multi-ai-chat-desktop';
 
 export interface LatestRelease {
   tagName: string;
