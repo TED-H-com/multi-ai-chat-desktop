@@ -2283,7 +2283,6 @@ export function ChatArea({
 
   return (
     <div
-      className="p-2"
       style={{
         height: `${rowVirtualizer.getTotalSize()}px`,
         width: '100%',
@@ -2306,8 +2305,8 @@ export function ChatArea({
             style={{
               position: 'absolute',
               top: 0,
-              left: 0,
-              width: '100%',
+              left: '0.5rem',
+              width: 'calc(100% - 1rem)',
               transform: `translateY(${virtualItem.start}px)`,
               paddingBottom: '0.75rem',
             }}

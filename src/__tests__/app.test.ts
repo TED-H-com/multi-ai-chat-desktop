@@ -17,7 +17,7 @@ vi.mock('@tauri-apps/api/event', () => ({
 }));
 
 import { bubbleAuthorLabel } from '../bubbleAuthorLabel';
-import App, { ChatArea, presentationHiddenProvidersForCenterSurface, Bubble } from '../App';
+import App, { ChatArea, presentationHiddenProvidersForCenterSurface } from '../App';
 import { I18nProvider } from '../i18n/context';
 import { applyCenterHiddenCommands } from '../ui/presentationCommands';
 import { defaultPresentation, setProviderPresentation } from '../ui/presentation';
@@ -85,7 +85,7 @@ describe('ChatArea thinking indicator', () => {
   it('hides streamed partial content while a non-final provider bubble is thinking', () => {
     const html = renderToStaticMarkup(
       createElement(ChatArea, {
-        scrollElement: null as any,
+        scrollElement: { current: null },
         locale: 'en',
         states: states({ chatgpt: state('chatgpt', true) }),
         messages: [{ id: 'ai-chatgpt-1', role: 'ai', provider: 'chatgpt', content: 'provider reasoning scrape', final: false }],
@@ -102,7 +102,7 @@ describe('ChatArea thinking indicator', () => {
   it('renders content for non-thinking and finalized bubbles', () => {
     const html = renderToStaticMarkup(
       createElement(ChatArea, {
-        scrollElement: null as any,
+        scrollElement: { current: null },
         locale: 'en',
         states: states({ chatgpt: state('chatgpt', true), claude: state('claude', false) }),
         messages: [
