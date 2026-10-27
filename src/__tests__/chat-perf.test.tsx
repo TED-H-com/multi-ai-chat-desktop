@@ -6,7 +6,7 @@ import React from 'react';
 import { describe, test, expect } from 'vitest';
 import { MarkdownText } from '../ui/MarkdownText';
 import { ChatArea } from '../App';
-import type { Bubble } from '../App';
+import { type Bubble } from '../App';
 
 describe('Performance benchmark: ChatArea and Markdown', () => {
   test('MarkdownText renders fast', () => {

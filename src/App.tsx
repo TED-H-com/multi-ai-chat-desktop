@@ -138,7 +138,7 @@ import {
 import { recordEventLog } from './diagnostics/eventLogStore';
 import { ReportPreviewDialog } from './ui/ReportPreviewDialog';
 
-interface Bubble {
+export interface Bubble {
   id: string;
   provider?: AIProvider | 'system' | (string & {});
   authorLabel?: string;
