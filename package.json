@@ -32,7 +32,9 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@tanstack/react-virtual": "^3.14.22",
     "@tauri-apps/cli": "^2.11.4",
+    "@testing-library/react": "^16.3.3",
     "@types/node": "^22.10.2",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
@@ -44,6 +46,7 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "^15.14.0",
+    "jsdom": "^29.1.1",
     "postcss": "^8.5.23",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2",

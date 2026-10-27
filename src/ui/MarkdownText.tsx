@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { memo, type ReactNode } from 'react';
 
 export interface MarkdownTextProps {
   text: string;
@@ -568,6 +568,6 @@ function renderBlocks(text: string): ReactNode[] {
   return blocks;
 }
 
-export function MarkdownText({ text }: MarkdownTextProps) {
+export const MarkdownText = memo(function MarkdownText({ text }: MarkdownTextProps) {
   return <div className="min-w-0 break-words leading-relaxed">{renderBlocks(text)}</div>;
-}
+});

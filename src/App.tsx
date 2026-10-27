@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useVirtualizer } from '@tanstack/react-virtual';
 import { AI_PROVIDERS, CHAT_MODES, DEFAULT_FREE_TARGET_PROVIDERS } from '../shared/constants';
 import type { AIProvider, BridgeMessage, ChatMode, ProviderState, WorkflowPresetId } from '../shared/types';
 import { startBridgePull, resetProviderBootState } from './bridge/pull';
@@ -137,7 +138,7 @@ import {
 import { recordEventLog } from './diagnostics/eventLogStore';
 import { ReportPreviewDialog } from './ui/ReportPreviewDialog';
 
-interface Bubble {
+export interface Bubble {
   id: string;
   provider?: AIProvider | 'system' | (string & {});
   authorLabel?: string;
@@ -2171,7 +2172,7 @@ export default function App() {
               handleTranscriptScroll();
             }}
           >
-            <ChatArea messages={messages} locale={locale} states={states} />
+            <ChatArea messages={messages} locale={locale} states={states} scrollElement={transcriptRef} />
             {import.meta.env.DEV ? <EchoPanel /> : null}
           </div>
           <div className="ai-sister-conversation-composer shrink-0 border-t border-zinc-200 pt-2 dark:border-zinc-800">
@@ -2251,11 +2252,19 @@ export function ChatArea({
   messages,
   locale,
   states,
+  scrollElement,
 }: {
   messages: Bubble[];
   locale: Locale;
   states: Record<AIProvider, ProviderState>;
+  scrollElement: React.RefObject<HTMLDivElement | null>;
 }) {
+  const rowVirtualizer = useVirtualizer({
+    count: messages.length,
+    getScrollElement: () => scrollElement.current,
+    estimateSize: () => 100, // estimated height of a message
+  });
+
   if (messages.length === 0) {
     const anyReady = (Object.keys(states) as AIProvider[]).some((provider) => isSendable(states[provider]));
     return (
@@ -2269,9 +2278,19 @@ export function ChatArea({
       </div>
     );
   }
+
+  const items = typeof window !== 'undefined' ? rowVirtualizer.getVirtualItems() : messages.map((_, index) => ({ index, start: 0 }));
+
   return (
-    <div className="space-y-3 p-2">
-      {messages.map((message) => {
+    <div
+      style={{
+        height: `${rowVirtualizer.getTotalSize()}px`,
+        width: '100%',
+        position: 'relative',
+      }}
+    >
+      {items.map((virtualItem) => {
+        const message = messages[virtualItem.index];
         const p = message.provider;
         const isProvider = typeof p === 'string' && p in AI_PROVIDERS;
         const thinking = isProvider && !message.final && states[p as AIProvider]?.thinking === true;
@@ -2281,9 +2300,18 @@ export function ChatArea({
         return (
           <article
             key={message.id}
-            className="ai-sister-message border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 p-3"
-            data-provider={isProvider ? p : undefined}
+            ref={rowVirtualizer.measureElement}
+            data-index={virtualItem.index}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: '0.5rem',
+              width: 'calc(100% - 1rem)',
+              transform: `translateY(${virtualItem.start}px)`,
+              paddingBottom: '0.75rem',
+            }}
           >
+            <div className="ai-sister-message border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 p-3" data-provider={isProvider ? p : undefined}>
             <div className="mb-1 flex items-center gap-2">
               {isProvider ? <AiSisterAvatar provider={p as AIProvider} active={thinking} size="md" /> : null}
               <div className="text-xs uppercase text-zinc-500 dark:text-zinc-500">
@@ -2300,6 +2328,7 @@ export function ChatArea({
               </div>
             )}
             {message.truncated ? <div className="mt-2 text-xs text-amber-700 dark:text-amber-300">{translateKey('chat.truncated', locale)}</div> : null}
+            </div>
           </article>
         );
       })}
