@@ -1,8 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
-import { host } from '../../host';
 import { publishBridgeMessage } from '../../bridge/bus';
 import { mergePullBridgeState } from '../../appBridgeState';
-import type { ProviderState } from '../../../shared/types';
+import type { ProviderState, BridgeMessage } from '../../../shared/types';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { createElement } from 'react';
 import { FocusPane } from '../../ui/FocusPane';
@@ -19,9 +18,7 @@ vi.mock('../../host', () => ({
 
 describe('multi-webview e2e', () => {
   it('verifies webview bridge messaging sync', () => {
-    let handled = false;
-    const testMessage = { provider: 'chatgpt', type: 'engine_ready' } as any;
-    const unsubscribe = vi.fn();
+    const testMessage: BridgeMessage = { v: 1, provider: 'chatgpt', action: 'ready' as unknown as BridgeMessage['action'] };
 
     // Simulate bridge message reception
     publishBridgeMessage(testMessage);
@@ -48,28 +45,28 @@ describe('multi-webview e2e', () => {
       claude: { provider: 'claude', webview: 'loaded', dom: 'ready', login: 'logged_in', thinking: false, lastStatusAt: 1, bridge: 'ok' },
       gemini: { provider: 'gemini', webview: 'loaded', dom: 'ready', login: 'logged_in', thinking: false, lastStatusAt: 1, bridge: 'ok' },
       grok: { provider: 'grok', webview: 'loaded', dom: 'ready', login: 'logged_in', thinking: false, lastStatusAt: 1, bridge: 'ok' },
-    } as any;
+    } as unknown as Record<string, ProviderState>;
 
     const html = renderToStaticMarkup(
-      createElement(I18nProvider, { language: 'en' },
-        createElement(FocusPane as any, {
-          states,
+      createElement(I18nProvider, { language: 'en' as const, children:
+        createElement(FocusPane as unknown as React.ComponentType<unknown>, {
+          states: states as unknown as Record<string, ProviderState>,
           presentation: defaultPresentation(),
           centerSurface: 'text',
           userHidden: new Set(),
           presentationHidden: new Set(),
           setPaneRef: vi.fn(),
           setCenterStageRef: vi.fn(),
-          changeProviderPresentation: vi.fn(),
+          changeProviderPresentation: vi.fn() as unknown as () => Promise<void>,
           onManualFocusControl: vi.fn(),
           onEnlargeCenter: vi.fn(),
           onCollapseCenter: vi.fn(),
-          onOpenLogin: vi.fn(),
-          syncBounds: vi.fn(),
-          reportProvider: vi.fn(),
+          onOpenLogin: vi.fn() as unknown as () => Promise<void>,
+          syncBounds: vi.fn() as unknown as () => Promise<void>,
+          reportProvider: vi.fn() as unknown as () => Promise<void>,
           activeProviders: ['chatgpt', 'claude', 'gemini', 'grok'],
-        })
-      )
+        } as unknown as React.Attributes)
+      })
     );
 
     expect(html).toContain('ChatGPT');
