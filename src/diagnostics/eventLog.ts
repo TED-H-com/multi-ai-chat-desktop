@@ -57,6 +57,7 @@ const SENSITIVE_DETAIL_KEYS = new Set([
   'payload',
   'token',
   'secret',
+  'apikey',
   'cookie',
   'cookies',
   'session',
