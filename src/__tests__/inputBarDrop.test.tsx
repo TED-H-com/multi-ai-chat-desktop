@@ -43,8 +43,26 @@ const hookRuntime = vi.hoisted(() => {
     useEffect() {
       cursor += 1;
     },
+    useCallback(fn: unknown) {
+      cursor += 1;
+      return fn;
+    },
+    useMemo(fn: () => unknown) {
+      const index = cursor;
+      cursor += 1;
+      if (!initialized[index]) {
+        values[index] = fn();
+        initialized[index] = true;
+      }
+      return values[index];
+    },
+    useContext() {
+      cursor += 1;
+      return {};
+    },
   };
 });
+
 
 vi.mock('react', async (importOriginal) => {
   const actual = await importOriginal<typeof import('react')>();
@@ -53,6 +71,9 @@ vi.mock('react', async (importOriginal) => {
     useEffect: hookRuntime.useEffect,
     useRef: hookRuntime.useRef,
     useState: hookRuntime.useState,
+    useCallback: hookRuntime.useCallback,
+    useMemo: hookRuntime.useMemo,
+    useContext: hookRuntime.useContext,
   };
 });
 

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AI_PROVIDERS, CHAT_MODES, DEFAULT_FREE_TARGET_PROVIDERS } from '../shared/constants';
 import type { AIProvider, BridgeMessage, ChatMode, ProviderState, WorkflowPresetId } from '../shared/types';
 import { startBridgePull, resetProviderBootState } from './bridge/pull';
@@ -2247,7 +2247,46 @@ function adapterNoticeText(notice: AdapterNotice): string {
   return `${provider}: ${notice.message || notice.kind}`;
 }
 
-export function ChatArea({
+export const ChatMessage = memo(function ChatMessage({
+  message,
+  locale,
+  thinking,
+}: {
+  message: Bubble;
+  locale: Locale;
+  thinking: boolean;
+}) {
+  const p = message.provider;
+  const isProvider = typeof p === 'string' && p in AI_PROVIDERS;
+  const statusLabel =
+    message.role === 'ai' && !message.final ? translateKey(thinking ? 'chat.thinking' : 'chat.streaming', locale) : '';
+
+  return (
+    <article
+      className="ai-sister-message border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 p-3"
+      data-provider={isProvider ? p : undefined}
+    >
+      <div className="mb-1 flex items-center gap-2">
+        {isProvider ? <AiSisterAvatar provider={p as AIProvider} active={thinking} size="md" /> : null}
+        <div className="text-xs uppercase text-zinc-500 dark:text-zinc-500">
+          {bubbleAuthorLabel(message)}
+          {message.modeRole ? ` · ${message.modeRole}` : ''}
+          {statusLabel ? ` ${statusLabel}` : ''}
+        </div>
+      </div>
+      {thinking ? (
+        <div className="whitespace-pre-wrap text-sm italic text-zinc-500 dark:text-zinc-500">{translateKey('chat.thinking', locale)}</div>
+      ) : (
+        <div className="text-sm">
+          <MarkdownText text={message.content} />
+        </div>
+      )}
+      {message.truncated ? <div className="mt-2 text-xs text-amber-700 dark:text-amber-300">{translateKey('chat.truncated', locale)}</div> : null}
+    </article>
+  );
+});
+
+export const ChatArea = memo(function ChatArea({
   messages,
   locale,
   states,
@@ -2275,37 +2314,19 @@ export function ChatArea({
         const p = message.provider;
         const isProvider = typeof p === 'string' && p in AI_PROVIDERS;
         const thinking = isProvider && !message.final && states[p as AIProvider]?.thinking === true;
-        const statusLabel =
-          message.role === 'ai' && !message.final ? translateKey(thinking ? 'chat.thinking' : 'chat.streaming', locale) : '';
 
         return (
-          <article
+          <ChatMessage
             key={message.id}
-            className="ai-sister-message border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 p-3"
-            data-provider={isProvider ? p : undefined}
-          >
-            <div className="mb-1 flex items-center gap-2">
-              {isProvider ? <AiSisterAvatar provider={p as AIProvider} active={thinking} size="md" /> : null}
-              <div className="text-xs uppercase text-zinc-500 dark:text-zinc-500">
-                {bubbleAuthorLabel(message)}
-                {message.modeRole ? ` · ${message.modeRole}` : ''}
-                {statusLabel ? ` ${statusLabel}` : ''}
-              </div>
-            </div>
-            {thinking ? (
-              <div className="whitespace-pre-wrap text-sm italic text-zinc-500 dark:text-zinc-500">{translateKey('chat.thinking', locale)}</div>
-            ) : (
-              <div className="text-sm">
-                <MarkdownText text={message.content} />
-              </div>
-            )}
-            {message.truncated ? <div className="mt-2 text-xs text-amber-700 dark:text-amber-300">{translateKey('chat.truncated', locale)}</div> : null}
-          </article>
+            message={message}
+            locale={locale}
+            thinking={thinking}
+          />
         );
       })}
     </div>
   );
-}
+});
 
 function modeFromReplayPlan(plan: ReplayPlan): ChatMode | undefined {
   const candidate = plan.graph?.mode ?? plan.graph?.id;
