@@ -1,6 +1,16 @@
 # Compatibility and Smoke-Test Matrix / 相容性與人工測試矩陣
 
-> Last reviewed: 2026-10-23. The 2026-09-26 review reflected live `v1.9.4` evidence from a Windows zh-TW session and automated checks of later source changes. `v1.9.5` includes the page-replacement failure and the unconditional composer-fill yield. Those fixes have automated coverage only, and there is no live field check of them yet. The 2026-09-30 notes for ChatGPT adapter v9 and Grok adapter v8 are automated coverage only. `v1.9.6` ships the engine changes for ChatGPT's Chat/Work layout and bundles ChatGPT adapter v9 and Grok adapter v8; there is no live field check of them yet. This document records evidence, not a guarantee. Provider DOM and login flows can change without notice.
+> Last reviewed: 2026-11-02. The 2026-09-26 review reflected live `v1.9.4` evidence from a Windows zh-TW session and automated checks of later source changes. `v1.9.5` includes the page-replacement failure and the unconditional composer-fill yield. Those fixes have automated coverage only, and there is no live field check of them yet. The 2026-09-30 notes for ChatGPT adapter v9 and Grok adapter v8 are automated coverage only. `v1.9.6` ships the engine changes for ChatGPT's Chat/Work layout and bundles ChatGPT adapter v9 and Grok adapter v8; there is no live field check of them yet. This document records evidence, not a guarantee. Provider DOM and login flows can change without notice.
+
+## 2026-11-02 migration and maintenance evidence
+
+The relocated checkout was reconciled with GitHub, including the existing component/workflow tests and the rustls 0.23.46 and diagnostic `apiKey` redaction fixes. On the new Linux host, `pnpm verify` passes 810 frontend tests, 22 agent tests, TypeScript, ESLint, injected builds, and adapter schema/seed checks. The production build also passes. Source-launch dry-run reports missing Rust, WebKitGTK, and a graphical desktop with no lifecycle writes; this is not native launch or authenticated-provider evidence.
+
+Development dependencies now resolve Vite 6.4.5, fast-uri 3.1.9, Zod 4.6.7, and minimatch 11.0.4. Scoped overrides apply only to the affected lint/schema tooling parents, with removal conditions in `pnpm-workspace.yaml`. Full and production npm audits report zero advisories on this date. The earlier braces advisory is no longer returned by the current registry audit; braces remains 3.0.3, so this is not a claim that a new braces version was installed. The relevant fixes include [Vite's query-based deny bypass](https://github.com/advisories/GHSA-8g5g-mxqh-grgj), [Zod collection exhaustion](https://github.com/advisories/GHSA-mrhx-c7xc-m3w5), and [minimatch pattern amplification](https://github.com/advisories/GHSA-g3hv-75wg-m249).
+
+A loopback-only Vite probe with a disposable fake `.env` reproduces the marker disclosure on 6.4.4; 6.4.5 returns 403 for the plain path and all three tested query forms while still serving the public control file. Before/after ESLint JSON is identical for all 219 checked files after the minimatch major-version override, and all eight production assets are byte-identical after the dependency refresh. These checks do not establish arbitrary third-party glob compatibility.
+
+The four retained v1.9.7 downloads still match GitHub asset SHA-256 digests. That draft remains tied to commit `6bcf904`, not these later maintenance changes. Windows/Apple Silicon launch and signed-in provider smoke remain pending; issues #130/#132 and the draft release remain open/unpublished.
 
 ## 2026-10-23 maintenance evidence
 

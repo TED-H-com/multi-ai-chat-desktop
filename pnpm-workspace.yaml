@@ -6,3 +6,11 @@ overrides:
   # GHSA-rj75-hqrm-r3gf; remove when these parents require the patched parser.
   'tailwindcss@3>postcss-selector-parser': 7.1.6
   'postcss-nested@6>postcss-selector-parser': 7.1.6
+  # GHSA-g3hv-75wg-m249: these tooling consumers use the retained match API.
+  # Remove each override when its parent adopts minimatch 11 or a patched 10.x.
+  'eslint@10>minimatch': 11.0.4
+  '@eslint/config-array@0>minimatch': 11.0.4
+  '@typescript-eslint/typescript-estree@8>minimatch': 11.0.4
+  # Security floors until these parents require fast-uri >=3.1.9 / Zod >=4.6.6.
+  'ajv@8>fast-uri': 3.1.9
+  'eslint-plugin-react-hooks@7>zod': 4.6.7
