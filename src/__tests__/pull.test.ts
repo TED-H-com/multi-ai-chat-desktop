@@ -88,7 +88,7 @@ describe('pull transport', () => {
     await pullProvider(provider);
     cleanup();
     expect(messages.filter((msg) => msg.transport === 'pull').map((msg) => msg.mid)).toEqual([1, 2]);
-    expect(host.provider.eval).toHaveBeenCalledWith(provider, 'window.__MAC_BRIDGE__ && window.__MAC_BRIDGE__.ackBulk(2);');
+    expect(host.provider.eval).toHaveBeenCalledWith(provider, 'window.__MAC_BRIDGE__ && window.__MAC_BRIDGE__.bootId === "dedup" && window.__MAC_BRIDGE__.ackBulk(2);');
   });
 
   it('drops old-boot batches after title traffic establishes the active boot', async () => {
