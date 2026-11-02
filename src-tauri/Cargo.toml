@@ -17,7 +17,9 @@ tauri-build = { version = "=2.6.3", features = [] }
 
 [dependencies]
 tauri = { version = "=2.11.5", features = ["unstable"] }
-tauri-plugin-updater = "=2.10.1"
+# Inactive compatibility dependency (SPEC §2): no updater is registered.
+# Keep archive extraction disabled; the frozen app only opens GitHub Releases.
+tauri-plugin-updater = { version = "=2.10.1", default-features = false, features = ["rustls-tls"] }
 tauri-plugin-dialog = "=2.7.1"
 tauri-plugin-opener = "=2.5.4"
 reqwest = { version = "0.12.12", features = ["json", "rustls-tls"], default-features = false }
