@@ -150,6 +150,7 @@ describe('event log reducer', () => {
           text: 'secret text',
           prompt: 'secret prompt',
           body: 'secret body',
+          apiKey: 'secret key',
         },
       },
       { cap: 10 },
