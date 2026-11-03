@@ -134,6 +134,11 @@ Common prerequisites are **Node.js ^22.13.0 || >=24.0.0**, pnpm/Corepack, stable
 
 ## Development
 
+See the [API Reference](./docs/API_REFERENCE.md) for detailed specifications and developer usage examples of the core modules:
+- `src/host`: The host API proxy bridging the backend (Tauri).
+- `src/bridge`: The automation bridge handling communication with provider webviews.
+- `src/workflow`: The workflow engine orchestrating AI provider workflows.
+
 ```sh
 corepack enable # only if pnpm is unavailable
 pnpm install --frozen-lockfile
