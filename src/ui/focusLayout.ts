@@ -41,17 +41,26 @@ export type CenterStageWebviewState = 'none' | 'creating' | 'loaded';
 
 export function throttleWithFrame(fn: () => void, scheduleFrame?: (cb: () => void) => number): () => void {
   let scheduled = false;
-  return () => {
+  let targetFn = fn;
+  const executor = () => {
+    scheduled = false;
+    targetFn();
+  };
+
+  const throttled = () => {
     if (scheduled) return;
     scheduled = true;
     // Resolved lazily (only once the returned handler actually fires) so constructing
     // this wrapper during SSR/tests, where requestAnimationFrame is undefined, is safe.
     const schedule = scheduleFrame ?? requestAnimationFrame;
-    schedule(() => {
-      scheduled = false;
-      fn();
-    });
+    schedule(executor);
   };
+
+  throttled.setFn = (newFn: () => void) => {
+    targetFn = newFn;
+  };
+
+  return throttled;
 }
 
 export async function driveCenteredProviderToStage<TProvider extends string>({

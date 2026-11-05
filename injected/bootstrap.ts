@@ -227,11 +227,12 @@ interface MacBridge {
       return;
     }
     latestTitle = { action, payload };
-    const elapsed = performance.now() - lastTitleEmitAt;
+    const now = performance.now();
+    const elapsed = now - lastTitleEmitAt;
     if (elapsed >= 1000 && titleTimer === undefined) {
       const next = latestTitle;
       latestTitle = undefined;
-      lastTitleEmitAt = performance.now();
+      lastTitleEmitAt = now;
       if (next) emitTitleNow(next.action, next.payload);
       return;
     }

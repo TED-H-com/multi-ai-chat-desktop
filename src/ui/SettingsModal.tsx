@@ -802,7 +802,13 @@ export function DiagnosticsSection({
   }, [events]);
 
   const filteredEvents = useMemo(() => filterEventLogByProvider(events, providerFilter), [events, providerFilter]);
-  const recentEvents = useMemo(() => [...filteredEvents].reverse().slice(0, 120), [filteredEvents]);
+  const recentEvents = useMemo(() => {
+    const result = [];
+    for (let i = filteredEvents.length - 1; i >= 0 && result.length < 120; i--) {
+      result.push(filteredEvents[i]);
+    }
+    return result;
+  }, [filteredEvents]);
 
   const copyLog = async () => {
     const generation = ++copyGeneration.current;

@@ -1014,7 +1014,11 @@ export default function App() {
 
   // FocusPane 面板在極端小視窗下允許捲動；捲動不會觸發 ResizeObserver（尺寸沒變，只是位置變了），
   // 靠這個 onScroll 立即重新同步原生 webview 座標，而不是只依賴既有的 2.5s 輪詢 fallback。
-  const handleFocusPaneScroll = useMemo(() => throttleWithFrame(resyncNativeBounds), [resyncNativeBounds]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const handleFocusPaneScroll = useMemo(() => throttleWithFrame(resyncNativeBounds), []);
+  useEffect(() => {
+    (handleFocusPaneScroll as unknown as { setFn?: (fn: () => void) => void }).setFn?.(resyncNativeBounds);
+  }, [handleFocusPaneScroll, resyncNativeBounds]);
 
   const updateScrollFocusedProvider = useCallback(() => {
     const container = transcriptRef.current;
@@ -1024,7 +1028,11 @@ export default function App() {
   }, []);
 
   // 訊息面板捲動時，換左側對應 chip 反白，讓長回應也能看得出是哪個 AI 講的。
-  const handleTranscriptScroll = useMemo(() => throttleWithFrame(updateScrollFocusedProvider), [updateScrollFocusedProvider]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const handleTranscriptScroll = useMemo(() => throttleWithFrame(updateScrollFocusedProvider), []);
+  useEffect(() => {
+    (handleTranscriptScroll as unknown as { setFn?: (fn: () => void) => void }).setFn?.(updateScrollFocusedProvider);
+  }, [handleTranscriptScroll, updateScrollFocusedProvider]);
 
   useEffect(() => {
     handleTranscriptScroll();
