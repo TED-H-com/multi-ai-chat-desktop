@@ -1,6 +1,16 @@
 # Compatibility and Smoke-Test Matrix / 相容性與人工測試矩陣
 
-> Last reviewed: 2026-11-02. The 2026-09-26 review reflected live `v1.9.4` evidence from a Windows zh-TW session and automated checks of later source changes. `v1.9.5` includes the page-replacement failure and the unconditional composer-fill yield. Those fixes have automated coverage only, and there is no live field check of them yet. The 2026-09-30 notes for ChatGPT adapter v9 and Grok adapter v8 are automated coverage only. `v1.9.6` ships the engine changes for ChatGPT's Chat/Work layout and bundles ChatGPT adapter v9 and Grok adapter v8; there is no live field check of them yet. This document records evidence, not a guarantee. Provider DOM and login flows can change without notice.
+> Last reviewed: 2026-11-06. The 2026-09-26 review reflected live `v1.9.4` evidence from a Windows zh-TW session and automated checks of later source changes. `v1.9.5` includes the page-replacement failure and the unconditional composer-fill yield. Those fixes have automated coverage only, and there is no live field check of them yet. The 2026-09-30 notes for ChatGPT adapter v9 and Grok adapter v8 are automated coverage only. `v1.9.6` ships the engine changes for ChatGPT's Chat/Work layout and bundles ChatGPT adapter v9 and Grok adapter v8; there is no live field check of them yet. This document records evidence, not a guarantee. Provider DOM and login flows can change without notice.
+
+## 2026-11-06 maintenance and v1.9.8 preparation
+
+The maintenance candidate includes the unpublished v1.9.7 ChatGPT/Claude fixes and subsequent bridge lifecycle, diagnostic redaction, and dependency repairs. Local `pnpm verify` passes 810 frontend tests, 22 agent tests, TypeScript, ESLint, injected builds, and adapter schema/seed checks. Production build and `cargo fmt -- --check` pass. All TypeScript examples in the corrected internal API reference typecheck against the current source.
+
+PR #138 was closed without merging: its virtual list removes the `article[data-provider]` contract used by provider navigation and scroll focus, and unmounted replies cannot be reached by the existing DOM lookup. Its DOM-count assertions can pass with no visible messages. PR #144 retains the bounded event selection, frame executor reuse, and timestamp reuse; the effect-updated scroll callbacks were removed so React dependencies continue to govern handler freshness. Its benchmark now measures event selection only, not a workflow without a mocked native host.
+
+The current full JavaScript audit reports zero advisories. A paginated GitHub alert inventory still reports the existing GLib advisory #7; it has not been dismissed. Issue #130 was closed externally on 2026-11-02; no new signed-in test evidence accompanied that closure. Issue #132 remains open for a signed-in Windows retest despite its reproduced engine regression being fixed.
+
+Source-launch dry-run reports missing Rust, WebKitGTK, and a graphical desktop and performs zero writes. Windows and Apple Silicon candidate launch/login checks remain pending. The v1.9.7 draft still references the older `6bcf904` source; v1.9.8 is a separate candidate, so its artifacts must be built and checked independently.
 
 ## 2026-11-02 migration and maintenance evidence
 
