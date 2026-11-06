@@ -4,15 +4,15 @@
 
 一度質問するだけで、ログイン済みの4つのAI Webセッションが回答し、レビューし、反論しながら結果を磨きます。**ChatGPT、Claude、Gemini、Grokが引き続きデフォルトで、Meta AIはSettingsで選べる実験的な5番目のスタンバイです。** Multi-AI Chat Desktopは、4つのチャットを横に並べただけではない、Tauri 2製のマルチAIワークフローハブです。
 
-[**公式サイトを見る →**](https://ted-h-com.github.io/multi-ai-chat-desktop/?lang=ja) · [v1.9.6をダウンロード](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.6) · [すべてのリリース](https://github.com/TED-H-com/multi-ai-chat-desktop/releases) · MIT · APIキー不要 · アナリティクスなし
+[**公式サイトを見る →**](https://ted-h-com.github.io/multi-ai-chat-desktop/?lang=ja) · [v1.9.8をダウンロード](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.8) · [すべてのリリース](https://github.com/TED-H-com/multi-ai-chat-desktop/releases) · MIT · APIキー不要 · アナリティクスなし
 
 > このアプリは、普段利用しているプロバイダーのWebページを自動操作します。プロバイダー側のUI変更でアダプターが一時的に動かなくなる場合があり、自動操作には各サービスの利用規約が適用されることがあります。利用権限のあるアカウントとコンテンツだけを使用してください。ログイン、契約、年齢、利用上限、セキュリティ確認を回避する機能はありません。
 
-> **プロジェクト状況：** 6プリセット、基盤となる5ワークフローモード、snapshot／replay、任意のAI-Sister 4キャラクター記念版は引き続き機能凍結です。v1.9.6はChatGPTの新しいChat/Workレイアウトに沿い、未ログインのGrokをReadyではなくSign inと表示します。選択肢は5、同時に有効なのは4つです。ChatGPT、Claude、Gemini、Grokがデフォルトで、Meta AIは実験的な任意スタンバイです。
+> **プロジェクト状況：** 6プリセット、基盤となる5ワークフローモード、snapshot／replay、任意のAI-Sister 4キャラクター記念版は引き続き機能凍結です。ChatGPTとClaudeの互換性修正、回答転送の修正、セキュリティ保守を含むデスクトップ更新です。
 
 ## まずインストール
 
-現在の安定版は[**v1.9.6ダウンロードページ**](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.6)から入手できます。
+現在の安定版は[**v1.9.8ダウンロードページ**](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.8)から入手できます。
 
 | プラットフォーム | ダウンロード | 初回起動時の注意 |
 |---|---|---|
@@ -33,6 +33,17 @@
 Ad-hoc署名はbundleの完全性を守り、`v1.0.0` で発生した誤った「アプリが壊れています」判定を防ぎます。ただし、この例外を完全になくせるのはDeveloper ID署名とnotarizationだけです。管理対象Macでは利用者による例外指定が禁止されている場合があります。
 
 Windows portable版にはアプリ内更新UIがありません。[GitHub Releases](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/latest)から手動で更新してください。インストール版は新しいリリースを確認してダウンロードページを開けますが、アプリ自身が更新をダウンロード／インストールすることはありません。
+
+## v1.9.8 の更新内容
+
+- **ChatGPTの回答を保持** 対応するユーザーメッセージの要素がない場合でも、取得済みの有効な回答を送信確認エラーで置き換えません。過去の回答やプロンプトの反復は引き続き除外します。
+- **Claudeの回答本文を取得** Claude adapter v5はCDS回答レイアウトに対応し、従来のselectorも保持します。ログイン済み実サイトでの再テストは未完了です。
+- **次の回答を保護** 前のターンや再読み込み前のページから遅れて届いた確認やコールバックが、次の回答を消去・停止する問題を修正しました。
+- **プライバシーと依存関係の保守** 診断のAPI keyフィールドをマスクし、脆弱な依存関係を更新しました。更新確認は現在のrepositoryを使用します。
+
+エンジンとブリッジの修正にはデスクトップ更新が必要です。adapterの更新だけでは適用されません。WindowsとApple Siliconの起動・ログイン再テストは未完了です。
+
+[v1.9.8 リリースノート](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.8)
 
 ## v1.9.6の主な変更
 
