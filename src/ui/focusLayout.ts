@@ -41,13 +41,12 @@ export type CenterStageWebviewState = 'none' | 'creating' | 'loaded';
 
 export function throttleWithFrame(fn: () => void, scheduleFrame?: (cb: () => void) => number): () => void {
   let scheduled = false;
-  let targetFn = fn;
   const executor = () => {
     scheduled = false;
-    targetFn();
+    fn();
   };
 
-  const throttled = () => {
+  return () => {
     if (scheduled) return;
     scheduled = true;
     // Resolved lazily (only once the returned handler actually fires) so constructing
@@ -55,12 +54,6 @@ export function throttleWithFrame(fn: () => void, scheduleFrame?: (cb: () => voi
     const schedule = scheduleFrame ?? requestAnimationFrame;
     schedule(executor);
   };
-
-  throttled.setFn = (newFn: () => void) => {
-    targetFn = newFn;
-  };
-
-  return throttled;
 }
 
 export async function driveCenteredProviderToStage<TProvider extends string>({
