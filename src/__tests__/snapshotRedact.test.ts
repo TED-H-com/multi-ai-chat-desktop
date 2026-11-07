@@ -100,6 +100,20 @@ describe('snapshot redaction transform', () => {
     expect(snapshot).toEqual(original);
   });
 
+  it('omits inlineRef when text is missing but tier dictates it should be inline', async () => {
+    const snapshot = buildFullLocalSnapshot();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    delete (snapshot.steps[0].inputRef as any).text;
+    const redacted = await redactSnapshot(snapshot, 'prompt-text');
+    expect(redacted.redactionTier).toBe('prompt-text');
+    expect(redacted.steps[0].inputRef).toEqual({
+      tier: 'prompt-text',
+      kind: 'omitted',
+      byteLength: snapshot.steps[0].inputRef.byteLength,
+    });
+    expect(redacted.steps[0].inputRef).not.toHaveProperty('text');
+  });
+
   it('omits refs without text instead of fabricating hashes or inline text', async () => {
     const snapshot = buildFullLocalSnapshot();
     snapshot.steps[0].inputRef = { tier: 'metadata-only', kind: 'omitted', byteLength: 5 };

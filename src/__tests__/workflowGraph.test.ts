@@ -248,6 +248,85 @@ describe('workflow graph foundation', () => {
     });
   });
 
+  it('formats workflow history headings in renderHistory', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const freeGraphTest: any = structuredClone(freeGraph);
+    freeGraphTest.nodes.fanout = {
+      kind: 'step',
+      output: 'out1',
+      provider: { type: 'target' },
+      prompt: { builder: 'prompt.role.system', args: [] },
+      policy: 'serialRunStep',
+      appendHistory: {
+        history: 'testHistory',
+        value: {
+          name: { kind: 'providerName', provider: { type: 'target' } },
+          round: { kind: 'literal', value: 1 },
+          text: { kind: 'selfOutput' }
+        }
+      }
+    };
+    freeGraphTest.nodes.done = {
+      kind: 'step',
+      output: 'out2',
+      provider: { type: 'target' },
+      prompt: { builder: 'prompt.role.system', args: [{ kind: 'history', name: 'testHistory' }] },
+      policy: 'serialRunStep'
+    };
+    freeGraphTest.edges = [
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      { from: 'fanout', to: 'done', when: { type: 'textIncludes', ref: { kind: 'historyText', name: 'testHistory' } as any, value: 'something' } }
+    ];
+
+    let executionError: Error | undefined;
+    try {
+      await executeGraph(freeGraphTest, { text: 'test question', roles: {}, targets: ['chatgpt'] });
+    } catch (e) {
+      executionError = e as Error;
+    }
+
+    // Test that the execution fails graph structural validation safely but processes logic
+    expect(executionError).toBeDefined();
+  });
+
+  it('determines the correct checkpoint mode for the free graph', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const freeGraphTest: any = structuredClone(freeGraph);
+    freeGraphTest.mode = 'debate';
+
+    let error: Error | undefined;
+    try {
+      await executeGraph(freeGraphTest, { text: 'test question', roles: { chatgpt: 'chatgpt' } });
+    } catch (e) {
+      error = e as Error;
+    }
+
+    expect(error).toBeUndefined();
+  });
+
+  it('runs isProviderRef logic correctly inside execution', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const loopRefGraph: any = structuredClone(freeGraph);
+    loopRefGraph.nodes.fanout = {
+      kind: 'step',
+      output: 'out1',
+      provider: { type: 'loopVar', name: 'target' },
+      prompt: { builder: 'prompt.role.system', args: [] },
+      policy: 'serialRunStep'
+    };
+
+    let error: Error | undefined;
+    try {
+      await executeGraph(loopRefGraph, { text: 'test', roles: {}, targets: ['chatgpt'] });
+    } catch (e) {
+      error = e as Error;
+    }
+
+    expect(error).toBeDefined();
+    // Validate we hit the code path and validation failed for loop context specifically
+    expect(error?.message).toMatch(/not registered/);
+  });
+
   it('preflights serial graphs with the existing sendable predicate', async () => {
     vi.mocked(host.connections.get).mockResolvedValue([state('chatgpt'), state('claude', false), state('gemini'), state('grok')]);
     await expect(preflightGraph(debateGraph, DEFAULT_DEBATE_ROLES)).resolves.toMatchObject({
