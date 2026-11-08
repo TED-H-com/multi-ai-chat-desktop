@@ -4,15 +4,15 @@
 
 只問一次，讓四個已登入的 AI 網頁 session 互相回答、審查、質疑，再一起收斂結果。**ChatGPT、Claude、Gemini、Grok 仍是預設陣容；Meta AI 是 Settings 裡實驗性的第五家備用選項。** Multi-AI Chat Desktop 是以 Tauri 2 打造的多 AI workflow 中樞，不只是把四個聊天視窗並排。
 
-[**前往官方網站 →**](https://ted-h-com.github.io/multi-ai-chat-desktop/?lang=zh-TW) · [下載 v1.9.6](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.6) · [所有版本](https://github.com/TED-H-com/multi-ai-chat-desktop/releases) · MIT · 不需 API Key · 無分析追蹤
+[**前往官方網站 →**](https://ted-h-com.github.io/multi-ai-chat-desktop/?lang=zh-TW) · [下載 v1.9.8](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.8) · [所有版本](https://github.com/TED-H-com/multi-ai-chat-desktop/releases) · MIT · 不需 API Key · 無分析追蹤
 
 > 本 app 會自動操作你原本就在使用的 provider 網頁。第三方介面改版可能暫時使 adapter 失效，自動化使用也可能受各服務條款約束。請只使用你有權使用的帳號與內容；本 app 不會繞過登入、訂閱、年齡、用量或安全驗證。
 
-> **專案狀態：** 六個預設、底層五種 workflow mode、snapshot／replay，以及可選的 AI-Sister 四角色紀念版仍維持 feature-frozen。v1.9.6 跟隨 ChatGPT 較新的 Chat/Work 版面，並把未登入的 Grok 顯示為 Sign in，而不是 Ready。它維持五家可選、同時只啟用四家。ChatGPT、Claude、Gemini、Grok 仍是預設；Meta AI 是實驗性的可選備用。
+> **專案狀態：** 六個預設、底層五種 workflow mode、snapshot／replay，以及可選的 AI-Sister 四角色紀念版仍維持 feature-frozen。本次桌面更新包含 ChatGPT、Claude 相容性修補、回覆傳遞修正與安全維護。
 
 ## 先安裝
 
-請從 [**v1.9.6 下載頁**](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.6) 取得目前的穩定版。
+請從 [**v1.9.8 下載頁**](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.8) 取得目前的穩定版。
 
 | 平台 | 下載檔 | 第一次啟動須知 |
 |---|---|---|
@@ -33,6 +33,17 @@
 Ad-hoc 簽章可保護 bundle 完整性，也避免 `v1.0.0` 曾出現的錯誤「app 已損毀」訊息；只有 Apple Developer ID 簽章加 notarization 才能完全移除這個例外。受管理的 Mac 可能不允許使用者放行。
 
 Windows portable 版不顯示 app 內更新控制，請自行到 [GitHub Releases](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/latest) 更新。安裝版可以檢查新版本並打開下載頁，但 app 不會自行下載或安裝更新。
+
+## v1.9.8 更新重點
+
+- **保留 ChatGPT 的有效回答** 找不到對應的使用者訊息節點時，不再把已擷取的有效回答改成送出確認錯誤。舊回答與提示詞回音仍不會被接受。
+- **擷取 Claude 回答內文** Claude adapter v5 支援 CDS 回答版面，並保留舊版 selector。已登入實站的相容性仍待重測。
+- **保護下一輪回覆** 舊回合或重載前頁面的延遲確認與回呼，不再誤清除或中止下一輪回答。
+- **隱私與依賴維護** 遮罩診斷中的 API key 欄位、更新有漏洞的依賴，並讓更新檢查使用目前的 repository。
+
+請更新桌面 app 才能取得引擎與橋接修補；只重新整理 adapter 不夠。Windows 與 Apple Silicon 的啟動／登入實測仍待完成。
+
+[v1.9.8 發布說明](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.8)
 
 ## v1.9.6 更新重點
 

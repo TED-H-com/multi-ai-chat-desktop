@@ -4,15 +4,15 @@
 
 Eine Frage genügt: Vier angemeldete KI-Websitzungen antworten, prüfen, widersprechen und verfeinern das Ergebnis gemeinsam. **ChatGPT, Claude, Gemini und Grok bleiben die Standardauswahl; Meta AI ist eine experimentelle fünfte Standby-Option in den Einstellungen.** Multi-AI Chat Desktop ist ein Workflow-Hub auf Basis von Tauri 2, nicht bloß vier nebeneinander angeordnete Chats.
 
-[**Offizielle Website öffnen →**](https://ted-h-com.github.io/multi-ai-chat-desktop/?lang=de) · [v1.9.6 herunterladen](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.6) · [Alle Releases](https://github.com/TED-H-com/multi-ai-chat-desktop/releases) · MIT · keine API-Schlüssel · keine Analyse
+[**Offizielle Website öffnen →**](https://ted-h-com.github.io/multi-ai-chat-desktop/?lang=de) · [v1.9.8 herunterladen](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.8) · [Alle Releases](https://github.com/TED-H-com/multi-ai-chat-desktop/releases) · MIT · keine API-Schlüssel · keine Analyse
 
 > Diese App automatisiert die Anbieter-Webseiten, die du bereits verwendest. Änderungen an deren Oberfläche können einen Adapter vorübergehend beeinträchtigen; außerdem können die Bedingungen des jeweiligen Dienstes gelten. Verwende nur Konten und Inhalte, zu deren Nutzung du berechtigt bist. Anmeldung, Abonnement, Alter, Nutzungslimits und Sicherheitsprüfungen werden weder umgangen noch automatisiert gelöst.
 
-> **Projektstatus:** Sechs Presets, fünf zugrunde liegende Workflow-Modi, Snapshot/Replay und die optionale AI-Sister-Gedenkausgabe mit vier Figuren bleiben funktionsgefroren. v1.9.6 folgt ChatGPTs neuerem Chat/Work-Layout und zeigt nicht angemeldetes Grok als Sign in statt Ready. Es bietet fünf Anbieter zur Auswahl, davon immer genau vier aktiv. ChatGPT, Claude, Gemini und Grok bleiben die Standardauswahl; Meta AI ist ein experimenteller optionaler Standby.
+> **Projektstatus:** Sechs Presets, fünf zugrunde liegende Workflow-Modi, Snapshot/Replay und die optionale AI-Sister-Gedenkausgabe mit vier Figuren bleiben funktionsgefroren. Dieses Desktop-Update enthält Kompatibilitätskorrekturen für ChatGPT und Claude, Reparaturen der Antwortübertragung und Sicherheitswartung.
 
 ## Zuerst installieren
 
-Die aktuelle stabile Version steht auf der [**Downloadseite für v1.9.6**](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.6) bereit.
+Die aktuelle stabile Version steht auf der [**Downloadseite für v1.9.8**](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.8) bereit.
 
 | Plattform | Download | Hinweis zum ersten Start |
 |---|---|---|
@@ -33,6 +33,17 @@ Beim experimentellen Meta-AI-Pfad die Gast-, E-Mail-/Mobil- oder Facebook/Instag
 Die Ad-hoc-Signatur schützt die Bundle-Integrität und verhindert die falsche Meldung „App ist beschädigt“, die bei `v1.0.0` auftreten konnte. Nur Developer-ID-Signatur plus Notarisierung könnte diese Ausnahme ganz entfernen. Auf verwalteten Macs kann eine Freigabe durch Nutzer gesperrt sein.
 
 Portable Windows-Builds zeigen keine Update-Steuerung in der App. Aktualisiere sie manuell über [GitHub Releases](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/latest). Installierte Builds können nach einer neuen Version suchen und deren Downloadseite öffnen; die App lädt oder installiert Updates jedoch nicht selbst.
+
+## Neuerungen in v1.9.8
+
+- **ChatGPT-Antworten behalten** Eine bereits erfasste gültige Antwort wird nicht mehr durch einen falschen Sendebestätigungsfehler ersetzt, wenn das passende Nutzernachrichten-Element fehlt. Alte Antworten und Prompt-Echos bleiben ausgeschlossen.
+- **Claude-Antworttexte erfassen** Claude-Adapter v5 erkennt das CDS-Antwortlayout und behält ältere Selektoren bei. Ein erneuter Test mit angemeldetem Konto steht noch aus.
+- **Die nächste Antwort schützen** Verspätete Bestätigungen und Rückrufe aus früheren Runden oder neu geladenen Seiten können die nächste Antwort nicht mehr löschen oder stoppen.
+- **Datenschutz und Abhängigkeiten pflegen** API-Key-Felder in Diagnosen werden maskiert, verwundbare Abhängigkeiten aktualisiert und Updates im aktuellen Repository gesucht.
+
+Für die Engine- und Bridge-Korrekturen ist das Desktop-Update erforderlich; ein Adapter-Update allein reicht nicht. Start- und Anmeldetests unter Windows und Apple Silicon stehen noch aus.
+
+[v1.9.8 Release Notes](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.8)
 
 ## Neu in v1.9.6
 
