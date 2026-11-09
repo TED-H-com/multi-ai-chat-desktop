@@ -64,7 +64,7 @@ describe('Workflow execution e2e', () => {
   it('runs brainstorm workflow successfully', async () => {
     const res = await runWorkflow({
       text: 'hello',
-      mode: 'chat',
+      mode: 'free',
       presetId: 'brainstorm',
     });
     expect(res).toEqual({ ok: true });
@@ -81,7 +81,7 @@ describe('Workflow execution e2e', () => {
   it('runs serial workflow successfully', async () => {
     const res = await runWorkflow({
       text: 'hello',
-      mode: 'chat',
+      mode: 'free',
     });
     expect(res).toEqual({ ok: true });
   });
