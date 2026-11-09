@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi, type Mock } from "vitest";
 import { executeGraph } from '../../../workflow/graph';
 import { promptBuilders, textConditionEvaluators } from '../../../workflow/graph/registries';
 
@@ -76,7 +76,7 @@ describe('Workflow graph integration', () => {
       preflight: { kind: 'free' }
     };
 
-    const promise = executeGraph(mockGraph as any, { text: 'hi', targets: ['chatgpt'] }, {});
+    const promise = executeGraph(mockGraph as unknown as import("../../../workflow/graph/types").WorkflowGraph, { text: 'hi', targets: ['chatgpt'] }, {});
     await expect(promise).resolves.toBeUndefined();
   });
 
@@ -108,13 +108,13 @@ describe('Workflow graph integration', () => {
       preflight: { kind: 'free' }
     };
 
-    const promise = executeGraph(mockGraph as any, { text: 'hi', targets: ['chatgpt'] }, {});
+    const promise = executeGraph(mockGraph as unknown as import("../../../workflow/graph/types").WorkflowGraph, { text: 'hi', targets: ['chatgpt'] }, {});
     await expect(promise).resolves.toBeUndefined();
   });
 
   it('tests error recovery logic and teardown', async () => {
     const { runStep } = await import('../../../workflow/stepRunner');
-    (runStep as any).mockRejectedValueOnce(new Error('simulated step error'));
+    (runStep as unknown as Mock).mockRejectedValueOnce(new Error('simulated step error'));
     const { tearDownWaiters } = await import('../../../workflow/teardown');
     const { abortWorkflow } = await import('../../../workflow/cancel');
 
@@ -135,7 +135,7 @@ describe('Workflow graph integration', () => {
       preflight: { kind: 'serial' }
     };
 
-    const promise = executeGraph(mockGraph as any, { text: 'hi', targets: ['chatgpt'] }, {});
+    const promise = executeGraph(mockGraph as unknown as import("../../../workflow/graph/types").WorkflowGraph, { text: 'hi', targets: ['chatgpt'] }, {});
     await expect(promise).rejects.toThrow('simulated step error');
     expect(abortWorkflow).toHaveBeenCalled();
     expect(tearDownWaiters).toHaveBeenCalled();
@@ -160,7 +160,7 @@ describe('Workflow graph integration', () => {
       preflight: { kind: 'serial' }
     };
 
-    await expect(executeGraph(mockGraph as any, { text: 'hi', targets: ['chatgpt'] }, {})).rejects.toThrow(/Loop.*must have a positive maxIterations/);
+    await expect(executeGraph(mockGraph as unknown as import("../../../workflow/graph/types").WorkflowGraph, { text: 'hi', targets: ['chatgpt'] }, {})).rejects.toThrow(/Loop.*must have a positive maxIterations/);
   });
 
   it('evaluates continueWhen and terminateWhen correctly on loops', async () => {
@@ -201,7 +201,7 @@ describe('Workflow graph integration', () => {
       preflight: { kind: 'free' }
     };
 
-    const promise = executeGraph(mockGraph as any, { text: 'hi', targets: ['chatgpt'] }, {});
+    const promise = executeGraph(mockGraph as unknown as import("../../../workflow/graph/types").WorkflowGraph, { text: 'hi', targets: ['chatgpt'] }, {});
     await expect(promise).resolves.toBeUndefined();
     expect(continuedCount).toBeGreaterThan(0);
   });
@@ -236,7 +236,7 @@ describe('Workflow graph integration', () => {
     };
 
     // Test logic where when condition matches.
-    const promise = executeGraph(mockGraph as any, { text: 'hi', targets: ['chatgpt'] }, {});
+    const promise = executeGraph(mockGraph as unknown as import("../../../workflow/graph/types").WorkflowGraph, { text: 'hi', targets: ['chatgpt'] }, {});
     await expect(promise).resolves.toBeUndefined();
   });
 });

@@ -1,4 +1,4 @@
-import { describe, expect, it, vi, beforeEach } from 'vitest';
+import { describe, expect, it, vi, beforeEach, type Mock } from "vitest";
 import { runWorkflow } from '../../../workflow/index';
 import { getInFlightProviders } from '../../../workflow/cancel';
 
@@ -90,7 +90,7 @@ describe('Workflow execution e2e', () => {
     const { emitSystemError } = await import('../../../workflow/events');
     const { executeGraph } = await import('../../../workflow/graph');
 
-    (executeGraph as any).mockRejectedValueOnce(new Error('executeGraph error'));
+    (executeGraph as unknown as Mock).mockRejectedValueOnce(new Error('executeGraph error'));
 
     const res = await runWorkflow({
       text: 'hello',
@@ -105,7 +105,7 @@ describe('Workflow execution e2e', () => {
     const { executeGraph } = await import('../../../workflow/graph');
     const { ProviderPageReloadedError } = await import('../../../workflow/providerResponse');
 
-    (executeGraph as any).mockRejectedValueOnce(new ProviderPageReloadedError('chatgpt'));
+    (executeGraph as unknown as Mock).mockRejectedValueOnce(new ProviderPageReloadedError('chatgpt'));
 
     const res = await runWorkflow({
       text: 'hello',
@@ -121,10 +121,10 @@ describe('Workflow execution e2e', () => {
     const { executeGraph } = await import('../../../workflow/graph');
     const { abortWorkflow } = await import('../../../workflow/cancel');
     const { tearDownWaiters } = await import('../../../workflow/teardown');
-    (getInFlightProviders as any).mockReturnValueOnce(['chatgpt']);
+    (getInFlightProviders as unknown as Mock).mockReturnValueOnce(['chatgpt']);
 
     let releaseGraph: () => void = () => {};
-    (executeGraph as any).mockImplementationOnce(() => {
+    (executeGraph as unknown as Mock).mockImplementationOnce(() => {
       return new Promise<void>((resolve) => {
         releaseGraph = resolve;
       });
