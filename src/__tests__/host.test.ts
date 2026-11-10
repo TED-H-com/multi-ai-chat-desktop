@@ -44,10 +44,26 @@ describe('host snapshot bindings', () => {
     expect(invokeMock).toHaveBeenLastCalledWith('snapshot_delete', { snapshotId: 'snap-1.ok' });
   });
 
-  it('rejects unsafe snapshot ids before invoke', async () => {
-    await expect(host.snapshot.load('../secret')).rejects.toThrow('Invalid snapshot id');
-    await expect(host.snapshot.delete('/tmp/secret')).rejects.toThrow('Invalid snapshot id');
-    expect(invokeMock).not.toHaveBeenCalled();
+  describe('snapshot ID validation', () => {
+    it('rejects unsafe snapshot ids before invoke', async () => {
+      await expect(host.snapshot.load('../secret')).rejects.toThrow('Invalid snapshot id');
+      await expect(host.snapshot.delete('/tmp/secret')).rejects.toThrow('Invalid snapshot id');
+      await expect(host.snapshot.save('..', '{}')).rejects.toThrow('Invalid snapshot id');
+      await expect(host.snapshot.save('.', '{}')).rejects.toThrow('Invalid snapshot id');
+      await expect(host.snapshot.save('a/b', '{}')).rejects.toThrow('Invalid snapshot id');
+      await expect(host.snapshot.save('a\\b', '{}')).rejects.toThrow('Invalid snapshot id');
+      await expect(host.snapshot.save('', '{}')).rejects.toThrow('Invalid snapshot id');
+      await expect(host.snapshot.save('a'.repeat(81), '{}')).rejects.toThrow('Invalid snapshot id');
+      expect(invokeMock).not.toHaveBeenCalled();
+    });
+
+    it('accepts valid snapshot ids', async () => {
+      invokeMock.mockResolvedValue(undefined);
+      await expect(host.snapshot.save('snap-1_ok.2', '{}')).resolves.toBeUndefined();
+      await expect(host.snapshot.load('a-B-0_9.x')).resolves.toBeUndefined();
+      await expect(host.snapshot.delete('a')).resolves.toBeUndefined();
+      expect(invokeMock).toHaveBeenCalledTimes(3);
+    });
   });
 
   it('wraps session checkpoint commands with Tauri invoke argument names', async () => {
