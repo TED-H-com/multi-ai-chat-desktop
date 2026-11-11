@@ -503,7 +503,7 @@ When input/send/response resolution fails permanently (e.g. input element not fo
 
 ## 9. Workflow engine (`src/workflow/`)
 
-**SHIPPED state:** the v1 workflow engine ports `service-worker.ts` handlers with semantics preserved. Current production dispatch still calls imperative mode handlers at `src/workflow/index.ts:68-71`; the graph foundation already exists under `src/workflow/graph/` and is golden-tested for `debateGraph` but is not wired to `runWorkflow`.
+**SHIPPED state:** the v1 workflow engine ports `service-worker.ts` handlers with semantics preserved. Current production dispatch routes through `executeGraph` for every built-in mode and imported preset. The graph foundation lives under `src/workflow/graph/` and is wired to `runWorkflow`.
 
 **NEXT-PHASE (N0) v2 contract:** production dispatch routes through `executeGraph` for every built-in mode and imported preset. This is an internal execution substrate change only; it reuses `sendAndWait`/`runStep` and does not alter §7.
 
