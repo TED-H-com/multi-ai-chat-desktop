@@ -145,10 +145,25 @@ Common prerequisites are **Node.js ^22.13.0 || >=24.0.0**, pnpm/Corepack, stable
 
 ## Development
 
-See the [API Reference](./docs/API_REFERENCE.md) for detailed specifications and developer usage examples of the core modules:
-- `src/host`: The host API proxy bridging the backend (Tauri).
-- `src/bridge`: The automation bridge handling communication with provider webviews.
-- `src/workflow`: The workflow engine orchestrating AI provider workflows.
+The control pane architecture is divided into three primary modules. See the [API Reference](./docs/API_REFERENCE.md) for detailed specifications, parameter types, and developer usage examples. Examples in the API reference assume a module running directly under `src/`.
+
+### 1. Host API (`src/host`)
+The `host` module provides a secure, typed proxy bridging the React frontend to the Tauri backend. It is the **only** module authorized to call `invoke` and `listen`.
+- Controls webview lifecycles (create, destroy, show, hide, dock).
+- Dispatches raw commands directly to providers (e.g., `host.provider.send`, `host.provider.fill`, `host.provider.newSession`).
+- Reads configuration from the local `settings.json` via Tauri.
+
+### 2. Automation Bridge (`src/bridge`)
+The `bridge` module manages the internal message bus and asynchronous communication with isolated provider webviews.
+- Ingests native `document.title` events (lightweight STATUS_REPORT hints).
+- Executes polling mechanisms (`startBridgePull`) to retrieve authoritative payloads via callbacks (`RESPONSE_CHUNK` and `RESPONSE_DONE`).
+- Distributes internal React state updates securely, stripping any embedded policies to protect downstream prompts.
+
+### 3. Workflow Engine (`src/workflow`)
+The `workflow` module orchestrates all multi-provider interactions through `runWorkflow` and its underlying graph-based executor.
+- Enforces strict sequential or parallel dependency chains (Free, Debate, Consult, Coding, Roundtable, Brainstorm).
+- Injects standard human-confirm checkpoints (`FILL_DRAFT`) between automated turns.
+- Generates and writes `ExecutionSnapshot` records to disk for the Replay timeline and diagnostics bundle.
 
 ```sh
 corepack enable # only if pnpm is unavailable
