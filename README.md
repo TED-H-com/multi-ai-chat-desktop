@@ -4,15 +4,15 @@
 
 Ask once. Let four signed-in AI web sessions answer, review, challenge, and refine one another. **ChatGPT, Claude, Gemini, and Grok remain the default lineup; Meta AI is an experimental fifth standby option in Settings.** Multi-AI Chat Desktop is a Tauri 2 workflow hub, not four chat windows placed side by side.
 
-[**Visit the official website →**](https://ted-h-com.github.io/multi-ai-chat-desktop/) · [Download v1.9.6](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.6) · [All releases](https://github.com/TED-H-com/multi-ai-chat-desktop/releases) · MIT · no API keys · no analytics
+[**Visit the official website →**](https://ted-h-com.github.io/multi-ai-chat-desktop/) · [Download v1.9.8](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.8) · [All releases](https://github.com/TED-H-com/multi-ai-chat-desktop/releases) · MIT · no API keys · no analytics
 
 > This app automates provider web pages you already use. Provider UI changes can temporarily break an adapter, and automated use may be subject to each provider's terms. Use only accounts and content you are authorized to use. The app never bypasses login, subscription, age, rate-limit, or security checks.
 
-> **Project status:** six presets, five underlying workflow modes, snapshot/replay tools, and the optional AI-Sister Commemorative Edition remain feature-frozen. v1.9.6 follows ChatGPT's newer Chat/Work layout and shows signed-out Grok as Sign in instead of Ready. It keeps five provider choices with exactly four active at a time. ChatGPT, Claude, Gemini, and Grok remain the default; Meta AI is an experimental optional standby.
+> **Project status:** six presets, five underlying workflow modes, snapshot/replay tools, and the optional AI-Sister Commemorative Edition remain feature-frozen. ChatGPT and Claude compatibility repairs, safer reply delivery, and security maintenance are included in this desktop update.
 
 ## Install first
 
-Get the current stable release from the [**v1.9.6 download page**](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.6).
+Get the current stable release from the [**v1.9.8 download page**](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.8).
 
 | Platform | Download | First-launch note |
 |---|---|---|
@@ -33,6 +33,17 @@ In the experimental Meta AI path, complete guest, email/mobile, or Facebook/Inst
 The ad-hoc signature protects bundle integrity and avoids the false “app is damaged” result seen in `v1.0.0`; only Developer ID signing plus notarization could remove this exception. Managed Macs may prohibit it.
 
 Portable Windows builds do not show in-app update controls. Update them manually from [GitHub Releases](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/latest). Installed builds can check for a newer release and open its download page, but the app does not download or install updates itself.
+
+## What's new in v1.9.8
+
+- **Keep the ChatGPT answer** A valid captured reply no longer becomes a false send-confirmation error when the matching user-message node is missing. Historical replies and prompt echoes remain excluded.
+- **Read Claude reply bodies** Claude adapter v5 recognizes the CDS assistant reply layout and retains the older selectors. Signed-in compatibility still needs a live retest.
+- **Protect the next turn** Delayed acknowledgements and callbacks from an older turn or reloaded page no longer consume or stop the next reply.
+- **Maintain privacy and dependencies** Diagnostic API-key fields are redacted, vulnerable dependencies are refreshed, and update checks use the current repository.
+
+Install the desktop update to receive the engine and bridge repairs; refreshing adapters alone is insufficient. Windows and Apple Silicon launch/login retests remain pending.
+
+[v1.9.8 release notes](https://github.com/TED-H-com/multi-ai-chat-desktop/releases/tag/v1.9.8)
 
 ## What's new in v1.9.6
 
@@ -134,10 +145,25 @@ Common prerequisites are **Node.js ^22.13.0 || >=24.0.0**, pnpm/Corepack, stable
 
 ## Development
 
-See the [API Reference](./docs/API_REFERENCE.md) for detailed specifications and developer usage examples of the core modules:
-- `src/host`: The host API proxy bridging the backend (Tauri).
-- `src/bridge`: The automation bridge handling communication with provider webviews.
-- `src/workflow`: The workflow engine orchestrating AI provider workflows.
+The control pane architecture is divided into three primary modules. See the [API Reference](./docs/API_REFERENCE.md) for detailed specifications, parameter types, and developer usage examples. Examples in the API reference assume a module running directly under `src/`.
+
+### 1. Host API (`src/host`)
+The `host` module provides a secure, typed proxy bridging the React frontend to the Tauri backend. It is the **only** module authorized to call `invoke` and `listen`.
+- Controls webview lifecycles (create, destroy, show, hide, dock).
+- Dispatches raw commands directly to providers (e.g., `host.provider.send`, `host.provider.fill`, `host.provider.newSession`).
+- Reads configuration from the local `settings.json` via Tauri.
+
+### 2. Automation Bridge (`src/bridge`)
+The `bridge` module manages the internal message bus and asynchronous communication with isolated provider webviews.
+- Ingests native `document.title` events (lightweight STATUS_REPORT hints).
+- Executes polling mechanisms (`startBridgePull`) to retrieve authoritative payloads via callbacks (`RESPONSE_CHUNK` and `RESPONSE_DONE`).
+- Distributes internal React state updates securely, stripping any embedded policies to protect downstream prompts.
+
+### 3. Workflow Engine (`src/workflow`)
+The `workflow` module orchestrates all multi-provider interactions through `runWorkflow` and its underlying graph-based executor.
+- Enforces strict sequential or parallel dependency chains (Free, Debate, Consult, Coding, Roundtable, Brainstorm).
+- Injects standard human-confirm checkpoints (`FILL_DRAFT`) between automated turns.
+- Generates and writes `ExecutionSnapshot` records to disk for the Replay timeline and diagnostics bundle.
 
 ```sh
 corepack enable # only if pnpm is unavailable
